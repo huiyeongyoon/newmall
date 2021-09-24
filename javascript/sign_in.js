@@ -3,7 +3,7 @@
 function isInclude(emailValue, target) {
 
   for (let i = 0; i < target.length; i++) {
-    if( emailValue.includes(target[i])) {
+    if(emailValue.includes(target[i])) {
       return true;
     }
   }
@@ -31,29 +31,29 @@ const $signInPassword = document.querySelector('.sign-in-password');
 
 function signIn() {
 
-
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   const number = '0123456789';
   const at = '@';
   const com = '.';
 
+  console.log($signIn.value)
 
   if(!isInclude($signIn.value, alphabet)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    alert('1영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
   if(!isInclude($signIn.value, number)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    alert('2영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
   if(!isInclude($signIn.value, at)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    alert('3영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
   if(!isInclude($signIn.value, com)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    alert('4영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
@@ -62,7 +62,7 @@ function signIn() {
     return false;
   }
 
-  alert('1성공1');
+  alert('성공');
   return true;
 }
 
