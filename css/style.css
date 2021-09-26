@@ -47,13 +47,14 @@ table {
   border-spacing: 0;
 }
 
-html,body {
+html, body { /* html,body -> html, body */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7em;
   margin: 0;
   padding: 0;
-  width: 1920px;
-  height: 1080px;
+  height: 100%;
+  /* width: 1920px; */ /* 반응형으로 개발한다면 필요한 내용은 아닙니다. 추후에 더 자세히 피드백하겠습니다. */
+  /* height: 1080px; */ /* 페이지를 작성할 때 높이는 필요한 경우에 설정하게 되는데 이렇게 기본 값으로 넣어주진 않습니다. */
 }
 
 body {
