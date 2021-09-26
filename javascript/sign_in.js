@@ -83,7 +83,7 @@ function validateEmailAndPassword() {
 const isValidEmail = validateEmail();
 const isValidPassword = validatePassword();
 
-if (isValidEmail && isV) {
+if (isValidEmail && isValidPassword) {
   signIn();
 }
 
