@@ -33,12 +33,12 @@ const $signInPassword = document.querySelector('.sign-in-password');
 
 function signIn() {
 
-  const alphabet = ['a', 'b', 'c', 'd', ...]'abcdefghijklmnopqrstuvwxyz';
+  const alphabet = ['a', 'b', 'c', 'd'];
   const number = '0123456789';
   const at = '@';
   const com = '.'; // passwordConditions
 
-  console.log($signIn.value)
+
 
   // side effect
   if(!isInclude($signIn.value, alphabet)) {
