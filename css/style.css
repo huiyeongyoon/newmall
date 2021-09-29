@@ -47,7 +47,7 @@ table {
   border-spacing: 0;
 }
 
-html,body {
+html, body { /* html,body -> html, body */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7em;
   margin: 0;
