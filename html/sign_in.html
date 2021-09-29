@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>로그인</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/sign_in.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sign_in.css">
+  </head>
 <body>
   <main id="main">
     <div class="main-container">
@@ -14,6 +14,37 @@
         <form action="#">
           <ul class="ul-box1">
             <li class="input-box">
+              <div>
+                <label for="sign-in" class="sign-in-label">아이디</label>
+                <input type="email" class="sign-in" id="sign-in" name="sign-in">
+              </div>
+              <div>
+                <label for="sign-in-password">패스워드</label>
+                <input type="password" class="sign-in-password" id="sign-in-password" name="sign-in-password">
+              </div>
+            </li>
+            <li class="checkbox-box">
+              <div>
+                <input type="checkbox" id="check-id-saved" value="check-id-saved" name="check-id-saved"><label for="check-id-saved">아이디저장</label>
+              </div>
+              <div>
+                <input type="checkbox" id="keep-me-sign-in" value="keep-me-sign-in" name="keep-me-sign-in"><label for="keep-me-sign-in">자동 로그인</label>
+              </div>
+            </li>
+            <li>
+              <button class="sign-in-button" type="submit">로그인</button>
+            </li>
+            <!-- img로 버튼을 만들 때에도 button 요소를 사용해야 합니다. -->
+            <li>
+              <button type="button">
+                <img src="../img/kakao_sign_up_btn.png" alt="">
+              </button>
+            </li> <!-- sementic tag -->
+            <li>
+              <button type="button">
+                <img src="../img/naver_sign_up_btn.png" alt="">
+              </button>
+            </li>
               <!-- placeholder로 label을 대체하는 것은 좋지 않습니다. input 요소에 대해 label은 웸만하면 붙여주는 게 좋고 안 붙이더라도 일단 붙이고 시각적으로 숨기는게 좋습니다. -->
               <input type="email" class="sign-in" name="sign-in" placeholder="아이디"> <!-- type엔 email도 있습니다. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email -->
               <input type="password" class="sign-in-password" name="sign-in-password" placeholder=비밀번호>

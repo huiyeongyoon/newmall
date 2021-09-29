@@ -1,13 +1,16 @@
-
-
-function isInclude(emailValue, target) {
-
-  for (let i = 0; i < target.length; i++) {
-    if( emailValue.includes(target[i])) {
-      return true;
-    }
+function isInclude(email, passwordConditions) {
+  // 이 코드를 다른 사람이 쓴다면 난 어떤 내용을 전달해줘야 하나?
+  if (!Array.isArray(target)) {
+    console.error('target에 배열이 아닌 값이 전달되었습니다.');
+    return false;
   }
-  return false;
+
+  if (typeof email !== 'string') {
+    console.error('emailValue에 문자열이 아닌 값이 전달되었습니다.');
+    return false;
+  }
+
+  return target.filter((value) => email.includes(value)).length > 0;
 }
 
 function isNotInclude(emailValue) {
@@ -22,7 +25,6 @@ function isNotInclude(emailValue) {
   if (emailValue !== com) {
     alert('이메일 형식이 아닙니다');
   }
-
 }
 
 const $signInButton = document.querySelector('.sign-in-button');
@@ -31,38 +33,39 @@ const $signInPassword = document.querySelector('.sign-in-password');
 
 function signIn() {
 
-
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const alphabet = ['a', 'b', 'c', 'd'];
   const number = '0123456789';
   const at = '@';
-  const com = '.';
+  const com = '.'; // passwordConditions
 
 
+
+  // side effect
   if(!isInclude($signIn.value, alphabet)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    showErrorMessage('1영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
   if(!isInclude($signIn.value, number)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    showErrorMessage('2영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
-  if(!isInclude($signIn.value, at)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+  if(!isValidEmail($signIn.value, at)) {
+    showErrorMessage('3영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
   if(!isInclude($signIn.value, com)) {
-    alert('영문 숫자 합쳐서 이메일 형식으로')
+    showErrorMessage('4영문 숫자 합쳐서 이메일 형식으로')
     return false;
   }
 
   if($signInPassword.value.length < 8) {
-    alert('비밀번호는 8글자 이상 가능');
+    showErrorMessage('비밀번호는 8글자 이상 가능');
     return false;
   }
 
-  alert('1성공1');
+  showErrorMessage('성공');
   return true;
 }
 
@@ -70,4 +73,18 @@ $signInButton.addEventListener('click', (event) => {
   event.preventDefault();
   signIn();
 })
+
+
+function validateEmailAndPassword() {
+  // check email
+  // check password
+}
+
+const isValidEmail = validateEmail();
+const isValidPassword = validatePassword();
+
+if (isValidEmail && isValidPassword) {
+  signIn();
+}
+
 
