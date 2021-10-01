@@ -10,4 +10,5 @@ html, body {
   margin-top: 150px;
   width: 400px;
   max-width: 90%;
+  border: 1px solid #000;
 }
