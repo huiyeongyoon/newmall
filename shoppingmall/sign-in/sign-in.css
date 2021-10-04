@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 300px;
+  overflow-x:hidden
 }
 
 .sign-in-background {
@@ -50,10 +51,6 @@
   width: 415px;
   height: 440px;
   text-align: center;
-  font-size: 26px;
-  line-height: 36px;
-  font-weight: 700;
-  margin-bottom: 80px;
 }
 .sign-in-part-text-inner h2 {
   margin-bottom:17px;
@@ -71,7 +68,6 @@
 }
 
 .input-wrapper {
-  font-size: 24px;
   font-weight: 700;
   line-height: 35px;
   margin-bottom: 17px;
@@ -86,11 +82,12 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
-.input-h3-wrapper {
+.input-wrapper h2 {
   display: flex;
   flex-direction: column;
   align-items:flex-start;
   margin-bottom:80px;
+  text-align: left;
 }
 .input-label {
   color: #495057;
@@ -127,7 +124,7 @@
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.login-part-text-inner-wrap p{
+.login-part-text-inner-wrap a{
   display: flex;
   width: 100%;
   justify-content: flex-end;
