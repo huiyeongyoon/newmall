@@ -7,25 +7,26 @@ function signUp() {
 }
 
 function validateUserInput(id,password) {
-
   const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
   const checkPasswordValidation = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
   // 8~16자리 숫자 영문 특수문자 포함
   let idValue = '';
   let passwordValue = '';
+  let flag = false;
   if (!checkEmailValidation.test(id)) {
     idValue = showError(id);
-    return false
   }
 
   if (!checkPasswordValidation.test(password)) {
     passwordValue = showError(password);
-    return false
   }
 
-  return showError(id, password);
+  if (showError(id, password)) {
 
+  }
+
+  return true;
 }
 
 function showError(id, password) {
@@ -35,6 +36,7 @@ function showError(id, password) {
     $idError.textContent = '아이디가 틀립니다';
     $idError.style.display = "block";
     $inputId.style.outline = "solid 1px red";
+    $inputId.focus();
     return false;
   } else {
     $idError.style.display = "none";
@@ -45,6 +47,7 @@ function showError(id, password) {
     $passwordError.textContent = '비밀번호가 틀립니다';
     $passwordError.style.display = "block";
     $inputPassword.style.outline = "solid 1px red";
+    $inputPassword.focus();
     return false;
   } else {
     $passwordError.style.display ="none";
@@ -63,18 +66,16 @@ function hideWarn(id, password) {
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
-
   const $signUp = document.querySelector('.button-sign-up');
   const $signIn = document.querySelector('.form-sign-in');
   $signUp.addEventListener('click', function(event) {
-
     event.preventDefault();
     signUp();
   })
 
   $signIn.addEventListener('submit', function(event) {
-
     event.preventDefault();
+
     const signInData = new FormData(event.target);
     const body = {
       id: signInData.get('input-id'),
@@ -84,7 +85,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     if (validateUserInput(body.id, body.password)) {
 
     }
-    
+
+
     return false;
   });
 });
