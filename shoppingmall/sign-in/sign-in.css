@@ -1,3 +1,48 @@
+.modal-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s;
+}
+.modal-wrapper-active {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+}
+.modal {
+  background-color: #9a6696;
+  width: 30rem;
+  height: 18rem;
+  opacity: 0.8;
+}
+.close-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.button-close:after {
+  display: inline-block;
+  content: "\00d7";
+  font-size:15pt;
+  cursor: pointer;
+}
+.modal-contents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 75%;
+  font-size: 20px;
+  color: white;
+}
+
 .sign-in-wrapper {
   display: flex;
   flex-direction: column;
