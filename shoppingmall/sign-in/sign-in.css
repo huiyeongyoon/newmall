@@ -33,7 +33,7 @@
   font-size:15pt;
   cursor: pointer;
 }
-.modal-contents {
+.modal-contents-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
