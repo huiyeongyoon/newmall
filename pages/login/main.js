@@ -32,6 +32,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
       return;
     }
 
-    console.log('request body : ', body);
+    console.log('요청 body 값 : ', body, JSON.stringify(body));
+
+    fetch(
+      'http://localhost:3000/login',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body),
+      }
+    )
+      .then(response => {
+        console.log('fetch를 통해 받은 응답값 입니다.', response);
+        return response.json();
+      })
+      .then(data => {
+        console.log('응답값 : ', data);
+      });
   });
 });
