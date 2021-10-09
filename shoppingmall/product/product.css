@@ -17,14 +17,16 @@
   justify-content: flex-end;
   width: 78%;
 }
+.user-info a {
+  padding: 1.8rem;
+  text-decoration: none;
+  color: white;
+}
 .phone-number-wrapper {
   padding: 1.8rem;
 }
 .phone-number-wrapper span {
   padding-right: 1rem
-}
-.user-info span {
-  padding: 1.8rem;
 }
 
 .main-wrapper {
@@ -47,8 +49,10 @@
   flex-direction: row;
   padding-left: 15rem;
 }
-.list-wrapper span {
+.list-wrapper a {
   padding: 3rem 2rem;
+  text-decoration: none;
+  color: black;
 }
 .search-wrapper {
   display: flex;
@@ -90,8 +94,10 @@
   display: flex;
   flex-direction: row;
 }
-.sort ul li{
+.sort ul li a{
   padding: 1rem;
+  color: black;
+  text-decoration: none;
 }
 .sort-right-contents {
   padding-right: 1.2rem;
