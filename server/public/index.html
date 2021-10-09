@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 페이지</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <main id="main">
+      <h1 class="title-login">로그인</h1>
+      <form class="form-login">
+        <div class="input-wrapper">
+          <label for="id">아이디</label>
+          <!-- 여기에서 -login은 이름 -->
+          <input type="email" id="id" name="id1" class="input-login" />
+        </div>
+        <div class="input-wrapper">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" name="password1" class="input-login" />
+        </div>
+        <button type="submit" class="button-login">로그인</button>
+      </form>
+      <!-- 여기에서 login- 은 Block -->
+      <div class="login-links">
+        <a href="/signup" class="login-links__link">회원가입</a>
+        <a href="/find-info" class="login-links__link">아이디/비밀번호 찾기</a>
+      </div>
+    </main>
+  </div>
+  <script type="text/javascript" src="./main.js"></script>
+</body>
+</html>
