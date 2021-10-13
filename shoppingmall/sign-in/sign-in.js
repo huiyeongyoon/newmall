@@ -5,100 +5,27 @@ const $modalWrapper = document.querySelector('.modal-wrapper');
 function signUp() {
 }
 
-function validateUserInput(id,password) {
+function validateUserId(id) {
   const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
+  return checkEmailValidation.test(id);
+}
+
+function validateUserPassword(password) {
   const checkPasswordValidation = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
   // 8~16자리 숫자 영문 특수문자 포함
-  let flag = false;
-  if (!checkEmailValidation.test(id)) {
-    validateUserInfo(id);
-    createModal();
-    return false;
-  }
 
-  if (!checkPasswordValidation.test(password)) {
-    validateUserInfo(password);
-    createModal();
-    return false;
-  }
-  validateUserInfo(id, password);
-
-  return true;
+  return checkPasswordValidation.test(password);
 }
 
-function validateUserInfo(id, password) {
-  // 왜 아이디만 적으면 공백으로 나올까?
-  if (id !== 'name2960@naver.com') {
-    createModal();
-    showIdError();
-    return false;
-  } else {
-    $inputId.style.outline = '0px';
-  }
+function validateUserInfo(id) {
 
-  if (password !== 'name@960') {
-    createModal();
-    showPasswordError();
-    return false;
-  } else {
-    $inputPassword.style.outline = '0px';
-  }
-
-  return true;
 }
 
-function showIdError(id) {
-  $inputId.placeholder = '아이디가 틀립니다';
-  $inputId.placeholder.color = 'red';
-  $inputId.style.outline = 'solid 1px red';
-  $inputId.focus();
-  const $modalWrapper = document.querySelector('.modal-wrapper');
-  $modalWrapper.classList.add('modal-wrapper-active');
-
+function showErrorMessage(errorMessage) {
+  console.log(errorMessage);
   return false;
 }
-
-function showPasswordError(password) {
-  $inputPassword.placeholder = '비밀번호가 틀립니다';
-  $inputPassword.placeholder.color = 'red';
-  $inputPassword.style.outline = 'solid 1px red';
-  $inputPassword.focus();
-
-  return false;
-}
-
-function createModal() {
-
-  const modalWrapper = document.createElement('div');
-  $main.appendChild(modalWrapper);
-  modalWrapper.classList.add('modal-wrapper');
-
-  const modal = document.createElement('div');
-  modalWrapper.appendChild(modal);
-  modal.classList.add('modal');
-
-  const closeButtonWrapper = document.createElement('div');
-  modal.appendChild(closeButtonWrapper);
-  closeButtonWrapper.classList.add('close-button-wrapper');
-
-  const buttonClose = document.createElement('button');
-  closeButtonWrapper.appendChild(buttonClose);
-  buttonClose.classList.add('button-close');
-
-  const modalContentsWrapper = document.createElement('div');
-  modal.appendChild(modalContentsWrapper);
-  modalContentsWrapper.classList.add('modal-contents-wrapper');
-
-  const modalContents = document.createElement('h2');
-  modalContentsWrapper.appendChild(modalContents);
-  modalContentsWrapper.classList.add('modal-contents');
-  document.querySelector('.modal-contents').textContent = '아이디가 틀립니다';
-
-  return false;
-}
-
-
 
 window.addEventListener('DOMContentLoaded', function(event) {
 
@@ -120,27 +47,47 @@ window.addEventListener('DOMContentLoaded', function(event) {
       password: signInData.get('input-password')
     }
 
-    if (validateUserInput(body.id, body.password)) {
+    if (!validateUserId(body.id)) {
+      showErrorMessage('아이디가 틀립니다');
 
     }
-    return false;
+
+    if (!validateUserPassword(body.password)) {
+      showErrorMessage('패스워드가 틀립니다');
+
+    }
+
+    if (!validateUserInfo(body.id)) {
+      showErrorMessage('아이디가 틀립니다');
+    }
+
+    if (!validateUserInfo(body.password)) {
+      showErrorMessage('패스워드가 틀립니다');
+    }
+
+    fetch(
+        'http://localhost:3000/login',
+        {
+
+        }
+    )
   });
 
-  const $buttonClose = document.querySelector('.button-close');
-
-  $buttonClose.addEventListener('click', function(event) {
-    $modalWrapper.classList.remove('modal-wrapper-active');
-  })
-
-  window.addEventListener('keyup', function(event) {
-    if(event.key === "Escape") {
-      $modalWrapper.classList.remove('modal-wrapper-active');
-    }
-  })
-
-  $modalWrapper.addEventListener('click', function(event) {
-    $modalWrapper.classList.remove('modal-wrapper-active');
-  })
+  // const $buttonClose = document.querySelector('.button-close');
+  //
+  // $buttonClose.addEventListener('click', function(event) {
+  //   $modalWrapper.classList.remove('modal-wrapper-active');
+  // })
+  //
+  // window.addEventListener('keyup', function(event) {
+  //   if(event.key === "Escape") {
+  //     $modalWrapper.classList.remove('modal-wrapper-active');
+  //   }
+  // })
+  //
+  // $modalWrapper.addEventListener('click', function(event) {
+  //   $modalWrapper.classList.remove('modal-wrapper-active');
+  // })
 
 
 });
