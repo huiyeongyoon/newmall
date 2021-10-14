@@ -26,18 +26,16 @@
       <h1><a href=""><img src="img/logo.png" alt=""></a></h1>
     </div>
     <div class="list-wrapper">
-      <a href="">Home</a>
-      <a href="">Product</a>
-      <a href="">About</a>
-      <a href="">Contact</a>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Product</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
     </div>
     <div class="search-wrapper">
       <input type="text" placeholder="search">
-      <div class="search-icon-wrapper">
-        <button class="button-search-icon">
-          <img src="img/search-icon.PNG" alt="">
-        </button>
-      </div>
+    </div>
     </div>
   </nav>
 </header>
@@ -55,7 +53,7 @@
       </ul>
       <form>
         <span class="sort-right-contents">sort by:</span>
-        <select name="sorting" >
+        <select name="sorting" class="sorting" >
           <option value="korean" selected>평가순</option>
           <option value="korean" selected>주문순</option>
           <option value="korean" selected>가격 낮은순</option>
@@ -63,124 +61,122 @@
         </select>
       </form>
     </nav>
-    <div class="items-wrapper">
-      <section class="items">
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product1.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+    <section class="items">
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product1.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>40,000원</li>
-                  <li class="discount">50,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>40,000원</li>
+                <li class="discount">50,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product2.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product2.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>30,000원</li>
-                  <li class="discount">42,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>30,000원</li>
+                <li class="discount">42,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product3.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product3.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>46,000원</li>
-                  <li class="discount">52,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>46,000원</li>
+                <li class="discount">52,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product4.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product4.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>51,000원</li>
-                  <li class="discount">70,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>51,000원</li>
+                <li class="discount">70,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product5.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product5.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>$46,000원</li>
-                  <li class="discount">70,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>$46,000원</li>
+                <li class="discount">70,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-        <ul class="item">
-          <li class="single-product">
-            <div class="product-img">
-              <img src="img/product6.png" alt="">
-              <div class="new-product">
-                <span>New</span>
-              </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="item">
+        <li class="single-product">
+          <div class="product-img">
+            <img src="img/product6.png" alt="">
+            <div class="new-product">
+              <span>New</span>
             </div>
-            <div class="product-caption">
-              <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
-              <div class="price">
-                <ul>
-                  <li>84,000원</li>
-                  <li class="discount">110,000원</li>
-                </ul>
-              </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="#">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>84,000원</li>
+                <li class="discount">110,000원</li>
+              </ul>
             </div>
-          </li>
-        </ul>
-      </section>
-    </div>
+          </div>
+        </li>
+      </ul>
+    </section>
   </div>
   <div class="model-image">
     <div class="gallery-items">
