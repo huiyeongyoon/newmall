@@ -14,19 +14,11 @@ function validateUserPassword(password) {
   return checkPasswordValidation.test(password);
 }
 
-function validateUserIdInfo() {
-
-}
-
-function validateUserPasswordInfo() {
-
-}
-
 function showIdErrorMessage(errorMessage) {
-
   const $inputId = document.querySelector('.input-id');
 
   $inputId.placeholder = errorMessage;
+  $inputId.value = null;
   return false;
 }
 
@@ -34,8 +26,24 @@ function showPasswordErrorMessage(errorMessage) {
   const $inputPassword = document.querySelector('.input-password');
 
   $inputPassword.placeholder = errorMessage;
-  return false;
+  $inputPassword.value = null;
 
+  return false;
+}
+
+function showUserinfoErrorMessage(errorMessage) {
+  const $inputId = document.querySelector('.input-id');
+  const $inputPassword = document.querySelector('.input-password');
+
+  if (!errorMessage.success) {
+    $inputId.placeholder = '아이디가 틀립니다';
+    $inputId.value = null;
+    $inputPassword.placeholder = '패스워드가 틀립니다';
+    $inputPassword.value = null;
+  } else {
+    const $formSignIn = document.querySelector('.form-sign-in');
+    $formSignIn.submit();
+  }
 }
 
 window.addEventListener('DOMContentLoaded', function(event) {
@@ -68,15 +76,24 @@ window.addEventListener('DOMContentLoaded', function(event) {
       return
     }
 
-    if (!validateUserIdInfo(body.id)) {
-      showIdErrorMessage('아이디가 틀립니다');
-      return
-    }
-
-    if (!validateUserPasswordInfo(body.password)) {
-      showPasswordErrorMessage('패스워드가 틀립니다');
-      return
-    }
+    fetch(
+        'http://localhost:3000/sign-in',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body),
+        }
+    )
+        .then(response => {
+          console.log('fetch를 통해 받은 응답값 입니다.', response);
+          return response.json();
+        })
+        .then(data => {
+          console.log('응답값 : ', data);
+          showUserinfoErrorMessage(data);
+        });
 
     return true;
   });
