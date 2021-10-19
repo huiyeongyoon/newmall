@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="../common/header.css">
   <link rel="stylesheet" href="../common/footer.css">
   <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header id="header">
@@ -20,7 +26,7 @@
       <li><a href="#">쇼핑</a></li>
       <li><a href="#">장바구니</a></li>
       <li><a href="#">마이 페이지</a></li>
-      <li><a href="#">로그인</a></li>
+      <li><a href="http://localhost:3000/sign-in">로그인</a></li>
     </ul>
   </nav>
   <nav class="navbar-shopping-list">
@@ -29,10 +35,10 @@
     </div>
     <div class="list-wrapper">
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Product</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="http://localhost:3000/home/">Home</a></li>
+        <li><a href="http://localhost:3000/product/">Product</a></li>
+        <li><a href="http://localhost:3000/about/">About</a></li>
+        <li><a href="http://localhost:3000/contact">Contact</a></li>
       </ul>
     </div>
     <div class="search-wrapper">
@@ -42,7 +48,44 @@
 </header>
 <main>
   <div class="main-wrapper">
-    <img src="img/h1_hero.jpg">
+    <img class="background-image" src="img/h1_hero.jpg">
+    <span class="main-picture-wrapper">
+      <img src="img/hero_man.png">
+      <span class="sail-text-wrapper">
+        <span class="top-text">60% Discount</span>
+        <h2>winter<br>Collection</h2>
+        <span class="bottom-text">Best Cloth Collection By 2021</span>
+        <button>쇼핑하기</button>
+      </span>
+    </span>
+    <div class="category-wrapper">
+      <div class="category-subject">
+        <h2>Shop by category</h2>
+      </div>
+      <div class="category-pictures-wrapper">
+        <div class="category-picture">
+          <img src="img/cat1.jpg" alt="">
+          <span>
+            <span>Women's clothes</span>
+            <button></button>
+          </span>
+        </div>
+        <div class="category-picture">
+          <img src="img/cat1.jpg" alt="">
+          <span>
+            <span>Women's clothes</span>
+            <button></button>
+          </span>
+        </div>
+        <div class="category-picture">
+          <img src="img/cat1.jpg" alt="">
+          <span>
+            <span>Women's clothes</span>
+            <button></button>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 <footer>
