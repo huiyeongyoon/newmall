@@ -9,7 +9,6 @@
   flex-direction: row;
   background-color: black;
   color: white;
-  padding: 0 8rem;
   height: 4.5rem;
   justify-content: space-between;
 }
@@ -50,7 +49,7 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  padding-left: 15rem;
+  justify-content: center
 }
 .list-wrapper ul {
   display: flex;
@@ -65,6 +64,7 @@
 .list-wrapper a {
   padding: 3rem 2rem;
   text-decoration: none;
+  color: black;
 }
 .list-wrapper a:hover {
   color: red;
@@ -73,7 +73,6 @@
   display: flex;
   justify-content: flex-end;
   align-items:center;
-  padding-right: 13rem;
 }
 .search-wrapper input {
   height: 2.3rem;

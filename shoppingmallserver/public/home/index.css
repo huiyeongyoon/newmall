@@ -1,18 +1,22 @@
+body {
+  overflow-x: hidden;
+}
 .main-wrapper {
   position: relative;
   display: flex;
   margin: 0;
+  width: 100%;
 }
 .background-image {
   width: 100%;
-  height: 60rem;
+  height: 40rem;
 }
 .main-picture-wrapper {
   display: flex;
   position: absolute;
   justify-content: center;
   width: 80%;
-  height: 60rem;
+  height: 40rem;
 }
 .sail-text-wrapper {
   align-items: flex-start;
@@ -112,5 +116,25 @@
   justify-content:space-evenly;
   width: 100%;
   padding-left: 10em;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .navbar-shopping-list {
+   padding:0;
+  }
+  .main-picture-wrapper img {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-end;
+    max-width: 400px;
+  }
+
+}
+
+@media screen and (max-width: 1000px) {
+  .main-picture-wrapper img {
+   display: none;
+  }
 }
 

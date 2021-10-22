@@ -91,7 +91,7 @@ body {
   margin-top: 12rem;
 }
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1400px) {
   .items {
     display: flex;
     flex-wrap: wrap;
@@ -105,7 +105,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 600px) {
   .main-wrapper {
     display: flex;
     justify-content: center;
