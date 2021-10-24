@@ -53,12 +53,14 @@ body {
 }
 .item {
   display: flex;
-  padding: 0.3rem;
-  text-align: center;
-  width: 33%
+  flex-wrap: wrap;
 }
 .single-product{
-  width: 100%;
+  display: flex;
+  padding: 0.3rem;
+  text-align: center;
+  width: 33%;
+  flex-direction:column;
 }
 .product-img img {
   width: 100%;
@@ -101,11 +103,14 @@ body {
     display: flex;
     padding: 0.3rem;
     text-align: center;
+    flex-wrap: wrap;
+  }
+  .single-product {
     width: 50%;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 876px) {
   .main-wrapper {
     display: flex;
     justify-content: center;
@@ -133,7 +138,9 @@ body {
   .product-subject {
     display: none;
   }
-
+  .single-product {
+    width: 100%;
+  }
   .sort form {
     display: flex;
     padding: 0;
