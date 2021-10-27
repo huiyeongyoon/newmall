@@ -9,6 +9,10 @@ body {
   height: 20rem;
   font-size: 5rem;
 }
+.product-subject h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
 .item-wrapper {
   display: flex;
   width: 100%;

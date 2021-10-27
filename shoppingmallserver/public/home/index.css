@@ -26,7 +26,7 @@ body {
   padding: 0 5em;
 }
 .top-text {
-  font-family: "Yellowtail", cursive;
+  font-family: 'Playfair Display', serif;
   color: #2577fd;
   font-size: 40px;
   display: inline-block;
@@ -119,12 +119,13 @@ body {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 13px;
+  font-family: 'Playfair Display', serif;
 }
 .category-text-wrapper button {
   color: #000000;
   text-transform: capitalize;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   background: #ffce25;
   padding: 13px 24px;
