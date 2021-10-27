@@ -142,8 +142,7 @@ body {
 }
 
 .category-subject {
-  margin-top: 16rem;
-  margin-bottom: 7rem;
+  margin: 8rem 0;
 }
 
 @media screen and (max-width: 1200px) {

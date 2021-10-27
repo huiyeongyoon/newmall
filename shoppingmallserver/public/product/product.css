@@ -6,12 +6,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20rem;
-  font-size: 5rem;
+  margin: 5rem 0;
 }
 .product-subject h1 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
+  font-size: 82px;
 }
 .item-wrapper {
   display: flex;

@@ -7,14 +7,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1em 0;
 }
 .product-detail-subject {
   color: #000;
-  font-size: 50px;
   font-weight: 700;
   text-transform: capitalize;
-  margin: 2em 0;
   font-family: "Playfair Display", serif;
+  font-size: 82px;
 }
 .slide-wrapper {
   display: flex;

@@ -1,7 +1,16 @@
-.contact-wrapper {
-  padding: 8rem 30rem 0 30rem;
+.contact-subject{
+  display: flex;
+  justify-content:center;
+  color: #000;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin: 1em 0;
+  font-family: "Playfair Display", serif;
+  font-size: 82px;
 }
-
+.contact-wrapper {
+  padding: 0 30rem;
+}
 .row {
   display: flex;
   flex-wrap: wrap;
