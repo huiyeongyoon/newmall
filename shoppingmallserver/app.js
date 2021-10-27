@@ -9,6 +9,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const signInRouter = require('./routes/sign-in');
 const homeRouter = require('./routes/home');
+const productDetailsRouter = require('./routes/productdetail');
+const contactRouter = require('./routes/contact');
+const cartRouter = require('./routes/cart');
 
 const app = express();
 
@@ -22,7 +25,10 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/sign-in', signInRouter);
-app.use('/homeRouter', homeRouter);
+app.use('/home', homeRouter);
+app.use('/productDetails', productDetailsRouter);
+app.use('/contact', contactRouter);
+app.use('/cart', cartRouter);
 
 
 module.exports = app;
