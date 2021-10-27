@@ -3,8 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <title>contact</title>
+  <link rel="stylesheet" href="../common/style.css">
+  <link rel="stylesheet" href="../common/reset.css">
+  <link rel="stylesheet" href="../common/header.css">
+  <link rel="stylesheet" href="../common/footer.css">
+  <link rel="stylesheet" href="index.css">
 </head>
+<header id="header">
+  <nav class="user-info-navbar">
+    <div class="phone-number-wrapper">
+      <span>Contact Number</span>
+      <span>010-5250-2960</span>
+    </div>
+    <ul class="user-info">
+      <li><a href="#">쇼핑</a></li>
+      <li><a href="#">장바구니</a></li>
+      <li><a href="#">마이 페이지</a></li>
+      <li><a href="http://localhost:3000/sign-in">로그인</a></li>
+    </ul>
+  </nav>
+  <nav class="navbar-shopping-list">
+    <div class="logo-wrapper">
+      <h1><a href=""><img src="img/logo.png" alt=""></a></h1>
+    </div>
+    <div class="list-wrapper">
+      <ul>
+        <li><a href="http://localhost:3000/home/">Home</a></li>
+        <li><a href="http://localhost:3000/product/">Product</a></li>
+        <li><a href="http://localhost:3000/productdetail/">Product Detail</a></li>
+        <li><a href="http://localhost:3000/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="search-wrapper">
+      <input type="text" placeholder="search">
+    </div>
+  </nav>
+</header>
 <body>
-
+<div class="contact-wrapper">
+  <form class="form-contact contact_form">
+    <div class="row">
+      <div class="first-line-column">
+        <div class="form-group">
+          <textarea class="form-size form-control " name="message" id="message" cols="30" rows="9" placeholder=" Enter Message"></textarea>
+        </div>
+      </div>
+      <div class="first-line-column small-first-line-column ">
+        <div class="small-form">
+          <div class="second-line-column name-control">
+            <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+          </div>
+        </div>
+        <div class="small-form">
+          <div class="second-line-column email-control">
+            <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+          </div>
+        </div>
+      </div>
+      <div class="first-line-column">
+        <div class="second-line-column form-group">
+          <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+        </div>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+    </div>
+  </form>
+</div>
 </body>
+<footer>
+  <div class="footer-wrapper">
+    <div class="footer-flex footer-font">
+      <div class="footer-padding logo-size">
+        <!-- logo -->
+        <div class="footer-logo">
+          <a href="index.html"><img src="img/logo2_footer.png" alt=""></a>
+        </div>
+        <div class="footer-tittle">
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-padding">
+        <div class="footer-tittle">
+          <h2>Quick Links</h2>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Offers &amp; Discounts</a></li>
+            <li><a href="#">Get Coupon</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-padding">
+        <div class="single-footer-caption">
+          <div class="footer-tittle">
+            <h2>New Products</h2>
+            <ul>
+              <li><a href="#">Woman Cloth</a></li>
+              <li><a href="#">Fashion Accessories</a></li>
+              <li><a href="#"> Man Accessories</a></li>
+              <li><a href="#"> Rubber made Toys</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-padding">
+        <div class="single-footer-caption">
+          <div class="footer-tittle">
+            <h2>Support</h2>
+            <ul>
+              <li><a href="#">Frequently Asked Questions</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Report a Payment Issue</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 </html>

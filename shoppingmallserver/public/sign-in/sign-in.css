@@ -149,9 +149,10 @@
   border-bottom: 1px solid #dddddd;
   border-radius: 0;
 }
-.input-id::placeholder,
-.input-password::placeholder {
+.input-id-blank,
+.input-password-blank {
   color: red;
+  font-size: 18px;
 }
 .checkbox-wrapper {
   display: flex;

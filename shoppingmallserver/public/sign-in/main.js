@@ -14,32 +14,32 @@ function validateUserPassword(password) {
   return checkPasswordValidation.test(password);
 }
 
-function showIdErrorMessage(errorMessage) {
+function showIdErrorMessage() {
   const $inputId = document.querySelector('.input-id');
-
-  $inputId.placeholder = errorMessage;
+  const $inputIdBlank = document.querySelector('.input-id-blank');
   $inputId.value = null;
+  $inputIdBlank.textContent = '아이디가 틀립니다';
   return false;
 }
 
-function showPasswordErrorMessage(errorMessage) {
+function showPasswordErrorMessage() {
   const $inputPassword = document.querySelector('.input-password');
-
-  $inputPassword.placeholder = errorMessage;
+  const $inputPasswordBlank = document.querySelector('.input-password-blank')
+  const $inputId = document.querySelector('.input-id');
+  const $inputIdBlank = document.querySelector('.input-id-blank');
+  $inputId.value = null;
   $inputPassword.value = null;
-
+  $inputId.style.outlineColor = 'red';
+  $inputPassword.style.outlineColor = 'red';
+  $inputIdBlank.textContent = '아이디가 틀립니다';
+  $inputPasswordBlank.textContent = '비밀번호가 틀립니다';
   return false;
 }
 
 function showUserinfoErrorMessage(errorMessage) {
-  const $inputId = document.querySelector('.input-id');
-  const $inputPassword = document.querySelector('.input-password');
-
   if (!errorMessage.success) {
-    $inputId.placeholder = '아이디가 틀립니다';
-    $inputId.value = null;
-    $inputPassword.placeholder = '패스워드가 틀립니다';
-    $inputPassword.value = null;
+    showIdErrorMessage()
+    showPasswordErrorMessage()
   } else {
     const $formSignIn = document.querySelector('.form-sign-in');
     $formSignIn.submit();
@@ -50,6 +50,22 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
   const $signUp = document.querySelector('.button-sign-up');
   const $signIn = document.querySelector('.form-sign-in');
+  const $inputId = document.querySelector('.input-id');
+  const $inputPassword = document.querySelector('.input-password');
+  const $inputIdBlank =document.querySelector('.input-id-blank');
+  const $inputPasswordBlank = document.querySelector('.input-password-blank')
+  $inputId.addEventListener('keyup', function(event) {
+    event.preventDefault()
+    $inputIdBlank.textContent = '';
+    $inputId.style.outlineColor = 'black';
+  })
+
+  $inputPassword.addEventListener('keyup', function(event) {
+    event.preventDefault()
+    $inputPasswordBlank.textContent = '';
+    $inputPassword.style.outlineColor = 'black';
+  })
+
 
   $signUp.addEventListener('click', function(event) {
     event.preventDefault();
