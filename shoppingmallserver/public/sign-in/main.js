@@ -17,8 +17,11 @@ function validateUserPassword(password) {
 function showIdErrorMessage() {
   const $inputId = document.querySelector('.input-id');
   const $inputIdBlank = document.querySelector('.input-id-blank');
+  const $main = document.querySelector('#main');
+  const div = document.createElement('div')
   $inputId.value = null;
   $inputIdBlank.textContent = '아이디가 틀립니다';
+
   return false;
 }
 
@@ -36,7 +39,7 @@ function showPasswordErrorMessage() {
   return false;
 }
 
-function showUserinfoErrorMessage(errorMessage) {
+function signIn(errorMessage) {
   if (!errorMessage.success) {
     showIdErrorMessage()
     showPasswordErrorMessage()
@@ -108,7 +111,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
         })
         .then(data => {
           console.log('응답값 : ', data);
-          showUserinfoErrorMessage(data);
+          signIn(data);
         });
 
     return true;
