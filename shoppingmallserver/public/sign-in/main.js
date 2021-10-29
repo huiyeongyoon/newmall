@@ -4,6 +4,11 @@ function signUp() {
 function validateUserId(id) {
   const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
+  const main = document.querySelector('#main')
+  main.innerHTML += '<div class=modal-wrapper></div>';
+  main.appendChild();
+
+
   return checkEmailValidation.test(id);
 }
 
@@ -17,11 +22,8 @@ function validateUserPassword(password) {
 function showIdErrorMessage() {
   const $inputId = document.querySelector('.input-id');
   const $inputIdBlank = document.querySelector('.input-id-blank');
-  const $main = document.querySelector('#main');
-  const div = document.createElement('div')
   $inputId.value = null;
   $inputIdBlank.textContent = '아이디가 틀립니다';
-
   return false;
 }
 

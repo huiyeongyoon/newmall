@@ -10,11 +10,13 @@
   margin: 1em 0;
 }
 .product-detail-subject {
+  text-align: center;
   color: #000;
   font-weight: 700;
   text-transform: capitalize;
   font-family: "Playfair Display", serif;
   font-size: 82px;
+  margin: 5rem 0;
 }
 .slide-wrapper {
   display: flex;
@@ -84,7 +86,7 @@
   font-size: 40px;
   font-family: "Playfair Display", serif;
   color: #0b1c39;
-  margin-top: 0px;
+  margin-top: 0;
   font-style: normal;
   font-weight: 500;
 }
@@ -181,7 +183,9 @@
   color: #fff;
 }
 @media screen and (max-width: 1400px) {
-
+  .search-wrapper {
+    margin: 2.5em ;
+  }
   .slide-wrapper img {
     width: 40em;
     height: 30em;
@@ -194,7 +198,10 @@
     width: 600px;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+  .search-wrapper {
+    margin: 2.5em ;
+  }
 
   .slide-wrapper img {
     width: 27em;

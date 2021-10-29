@@ -160,7 +160,9 @@ body {
 }
 
 @media screen and (max-width: 1400px) {
-
+  .search-wrapper {
+    margin: 2.5em ;
+  }
   .category-pictures-wrapper {
     display: flex;
     flex-direction: column;
@@ -178,10 +180,14 @@ body {
 }
 
 @media (max-width: 768px) {
+  .search-wrapper {
+    margin: 2.5em ;
+  }
   .category-pictures-wrapper {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px 0;
+    padding: 0;
   }
   .category-picture {
     width: 100%;
@@ -190,5 +196,7 @@ body {
   .category-text-wrapper {
     padding-right: 5%;
   }
+
+
 }
 

@@ -98,6 +98,9 @@ body {
 }
 
 @media screen and (max-width: 1400px) {
+  .search-wrapper {
+    margin: 2.5em ;
+  }
   .items {
     display: flex;
     flex-wrap: wrap;
@@ -114,29 +117,32 @@ body {
   }
 }
 
-@media screen and (max-width: 876px) {
+@media screen and (max-width: 768px) {
   .main-wrapper {
     display: flex;
     justify-content: center;
     margin: 0 10%;
   }
 
+  .search-wrapper {
+    margin: 2.5em ;
+  }
+
   .list-wrapper {
     display: flex;
     flex-direction: column;
-    padding: 10px;
   }
-
   .list-wrapper a {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 3rem 2rem;
   }
 
   .search-wrapper {
     display: flex;
     justify-content: center;
     padding: 0;
+    margin: 2.5rem;
   }
 
   .product-subject {
