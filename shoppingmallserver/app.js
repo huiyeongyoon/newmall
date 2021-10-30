@@ -4,6 +4,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb+srv://Huiyeong:123@cluster0.5tyf5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+    .then(() => console.log('몽고 디비 연결 완료'))
+    .catch(err => console.log(err));
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -12,6 +16,7 @@ const homeRouter = require('./routes/home');
 const productDetailsRouter = require('./routes/productdetail');
 const contactRouter = require('./routes/contact');
 const cartRouter = require('./routes/cart');
+const signUpRouter = require('./routes/sign-up');
 
 const app = express();
 
@@ -29,6 +34,7 @@ app.use('/home', homeRouter);
 app.use('/productDetails', productDetailsRouter);
 app.use('/contact', contactRouter);
 app.use('/cart', cartRouter);
+app.use('/sign-up', signUpRouter);
 
 
 module.exports = app;
