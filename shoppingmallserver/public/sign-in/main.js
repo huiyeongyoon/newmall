@@ -1,28 +1,37 @@
-function closeModal() {
-
-  console.log('dd');
-}
+const $signUp = document.querySelector('.button-sign-up');
+const $form = document.querySelector('.form-sign-in');
+const $inputId = document.querySelector('.input-id');
+const $inputIdBlank =document.querySelector('.input-id-blank');
+const $inputPassword = document.querySelector('.input-password');
+const $inputPasswordBlank = document.querySelector('.input-password-blank');
+const emailErrorMessage = '존재하지 않는 이메일입니다.'
+const passwordErrorMessage = '패스워드가 틀립니다'
 
 function makeModal() {
-  const $modal = `<div class="modal">
-                    <div class="modal">
-                      <button type="button" class="button-close"></button>
-                    </div>
-                    <div class="modal-contents-wrapper">
-                      <h2>아이디가 틀립니다</h2>
-                    </div>
-                  </div>`
+  const $modal = `
+  <div class="modal-content-wrapper">
+    <header>
+      <button type="button"">X</button>
+    </header>
+    <div class="modal-content">${'존재하지 않는 이메일 혹은 비밀번호가 다릅니다'}</div>
+    <footer>
+      <button type="button" style="width: 100%;height: 40px;border-radius: 4px;background: #1275ab;color: #fff;">확인</button>
+    </footer>
+  </div>`;
   return $modal;
 }
 
-function addModal() {
+function showModal() {
   const $tempContainer = document.createElement('div');
   $tempContainer.classList.add('modal-wrapper');
   $tempContainer.classList.add('modal-wrapper-active');
+
   const $main = document.querySelector('#main');
+
   $tempContainer.innerHTML = makeModal();
   $main.appendChild($tempContainer);
 }
+
 function signUp() {
 }
 
@@ -40,31 +49,25 @@ function validateUserPassword(password) {
 }
 
 function showIdErrorMessage() {
-  const $inputId = document.querySelector('.input-id');
-  const $inputIdBlank = document.querySelector('.input-id-blank');
   $inputId.value = null;
-  $inputIdBlank.textContent = '아이디가 틀립니다';
+  $inputIdBlank.textContent = emailErrorMessage;
 }
 
 function showPasswordErrorMessage() {
-  const $inputPassword = document.querySelector('.input-password');
-  const $inputPasswordBlank = document.querySelector('.input-password-blank')
-  const $inputId = document.querySelector('.input-id');
-  const $inputIdBlank = document.querySelector('.input-id-blank');
   $inputId.value = null;
   $inputPassword.value = null;
   $inputId.style.outlineColor = 'red';
   $inputPassword.style.outlineColor = 'red';
-  $inputIdBlank.textContent = '아이디가 틀립니다';
-  $inputPasswordBlank.textContent = '비밀번호가 틀립니다';
+  $inputIdBlank.textContent = emailErrorMessage;
+  $inputPasswordBlank.textContent = passwordErrorMessage;
 }
 
-function signIn(errorMessage) {
-  if (!errorMessage.success) {
+function postProcessOfSignin(response) {
+  if (!response.success) {
     showIdErrorMessage();
     showPasswordErrorMessage();
   } else {
-    location.href='http://localhost:3000/home/'
+    location.href='http://localhost:3000/home/';
   }
 }
 
@@ -74,38 +77,33 @@ function changeInput(outline, blank) {
 }
 
 window.addEventListener('DOMContentLoaded', function(event) {
-  const $signUp = document.querySelector('.button-sign-up');
-  const $signIn = document.querySelector('.form-sign-in');
-  const $inputId = document.querySelector('.input-id');
-  const $inputIdBlank =document.querySelector('.input-id-blank');
-  const $inputPassword = document.querySelector('.input-password');
-  const $inputPasswordBlank = document.querySelector('.input-password-blank');
-  const $buttonClose = document.querySelector('.button-close');
 
   $signUp.addEventListener('click', function(event) {
     event.preventDefault();
     signUp();
   })
 
-  $signIn.addEventListener('submit', function(event) {
+  $form.addEventListener('submit', function(event) {
     event.preventDefault();
+
     const signInData = new FormData(event.target);
     const body = {
       id: signInData.get('input-id'),
-      password: signInData.get('input-password')
+      password: signInData.get('input-password'),
     }
 
     if (!validateUserId(body.id)) {
-      showIdErrorMessage('아이디가 틀립니다');
-      addModal()
+      showIdErrorMessage(emailErrorMessage);
+      showModal();
       return;
     }
 
     if (!validateUserPassword(body.password)) {
-      showPasswordErrorMessage('패스워드가 틀립니다');
-      addModal()
+      showPasswordErrorMessage(passwordErrorMessage);
+      showModal();
       return;
     }
+
     fetch(
         'http://localhost:3000/sign-in',
         {
@@ -116,14 +114,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
           body: JSON.stringify(body),
         }
     ).then(response => {
-      console.log('fetch를 통해 받은 응답값 입니다.', response);
       return response.json();
     }).then(data => {
       console.log('응답값 : ', data);
-      signIn(data);
+      postProcessOfSignin(data);
     });
-
-    return true;
   });
 
   $inputId.addEventListener('keyup', function(event) {
@@ -136,9 +131,24 @@ window.addEventListener('DOMContentLoaded', function(event) {
     changeInput($inputPassword,$inputPasswordBlank);
   })
 
-  $buttonClose.addEventListener('onClick', function(event) {
-    event.preventDefault();
-    closeModal();
-  })
-});
+  function delegate(selector, eventName, eventListener) {
+    document.querySelector('body').addEventListener(eventName, (event) => {
+      event.stopPropagation();
+      const { target } = event;
 
+      const $selector = document.querySelector(selector);
+
+      if (!$selector) {
+        console.error(`${selector}에 해당하는 요소를 찾을 수 없습니다.`);
+      } else {
+        if ($selector.contains(target)) {
+          typeof eventListener === 'function' && eventListener({ originalEvent: event, target: event.target, currentTarget: $selector });
+        }
+      }
+    }, true);
+  }
+
+  delegate('.button-close', 'click', (event) => {
+    console.log('hit', event);
+  });
+});
