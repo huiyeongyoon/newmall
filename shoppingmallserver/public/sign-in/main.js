@@ -1,3 +1,4 @@
+const $main = document.querySelector('#modal-content-wrapper');
 const $signUp = document.querySelector('.button-sign-up');
 const $form = document.querySelector('.form-sign-in');
 const $inputId = document.querySelector('.input-id');
@@ -11,11 +12,11 @@ function makeModal() {
   const $modal = `
   <div class="modal-content-wrapper">
     <header>
-      <button type="button"">X</button>
+      <button class="button-modal-close" type="button"></button>
     </header>
     <div class="modal-content">${'존재하지 않는 이메일 혹은 비밀번호가 다릅니다'}</div>
     <footer>
-      <button type="button" style="width: 100%;height: 40px;border-radius: 4px;background: #1275ab;color: #fff;">확인</button>
+      <button class="button-bottom-modal-close" type="button">확인</button>
     </footer>
   </div>`;
   return $modal;
@@ -48,31 +49,26 @@ function validateUserPassword(password) {
   return checkPasswordValidation.test(password);
 }
 
-function showIdErrorMessage() {
+function showErrorMessage() {
   $inputId.value = null;
   $inputIdBlank.textContent = emailErrorMessage;
-}
-
-function showPasswordErrorMessage() {
-  $inputId.value = null;
+  $inputId.classList.add('input-id-wrong');
   $inputPassword.value = null;
-  $inputId.style.outlineColor = 'red';
-  $inputPassword.style.outlineColor = 'red';
-  $inputIdBlank.textContent = emailErrorMessage;
+  $inputPassword.classList.add('input-password-wrong');
   $inputPasswordBlank.textContent = passwordErrorMessage;
 }
 
 function postProcessOfSignin(response) {
   if (!response.success) {
-    showIdErrorMessage();
-    showPasswordErrorMessage();
+    showErrorMessage();
   } else {
     location.href='http://localhost:3000/home/';
   }
 }
 
 function changeInput(outline, blank) {
-  outline.style.outlineColor = 'black';
+  outline.classList.remove('input-id-wrong');
+  outline.classList.remove('input-password-wrong');
   blank.textContent = '';
 }
 
@@ -93,13 +89,13 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if (!validateUserId(body.id)) {
-      showIdErrorMessage(emailErrorMessage);
+      showErrorMessage(emailErrorMessage);
       showModal();
       return;
     }
 
     if (!validateUserPassword(body.password)) {
-      showPasswordErrorMessage(passwordErrorMessage);
+      showErrorMessage(passwordErrorMessage);
       showModal();
       return;
     }
@@ -142,13 +138,18 @@ window.addEventListener('DOMContentLoaded', function(event) {
         console.error(`${selector}에 해당하는 요소를 찾을 수 없습니다.`);
       } else {
         if ($selector.contains(target)) {
-          typeof eventListener === 'function' && eventListener({ originalEvent: event, target: event.target, currentTarget: $selector });
+          typeof eventListener === 'function' && eventListener(event);
         }
       }
     }, true);
   }
 
-  delegate('.button-close', 'click', (event) => {
-    console.log('hit', event);
+  delegate('.button-modal-close', 'click', () => {
+    console.log('hit');
   });
+
+  delegate('.button-bottom-modal-close', 'click', () => {
+    console.log('hit');
+  });
+
 });
