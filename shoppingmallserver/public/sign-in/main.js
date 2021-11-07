@@ -1,4 +1,4 @@
-const $main = document.querySelector('#modal-content-wrapper');
+const $main = document.querySelector('#main');
 const $signUp = document.querySelector('.button-sign-up');
 const $form = document.querySelector('.form-sign-in');
 const $inputId = document.querySelector('.input-id');
@@ -7,16 +7,17 @@ const $inputPassword = document.querySelector('.input-password');
 const $inputPasswordBlank = document.querySelector('.input-password-blank');
 const emailErrorMessage = '존재하지 않는 이메일입니다.'
 const passwordErrorMessage = '패스워드가 틀립니다'
+let flag = false;
 
 function makeModal() {
   const $modal = `
-  <div class="modal-content-wrapper">
+  <div class='modal-content-wrapper'>
     <header>
-      <button class="button-modal-close" type="button"></button>
+      <button class='button-modal-close' type='button'><h1></h1></button>
     </header>
-    <div class="modal-content">${'존재하지 않는 이메일 혹은 비밀번호가 다릅니다'}</div>
+    <div class='modal-content'>${'존재하지 않는 이메일 혹은 비밀번호가 다릅니다'}</div>
     <footer>
-      <button class="button-bottom-modal-close" type="button">확인</button>
+      <button class='button-bottom-modal-close' type='button'>확인</button>
     </footer>
   </div>`;
   return $modal;
@@ -26,9 +27,6 @@ function showModal() {
   const $tempContainer = document.createElement('div');
   $tempContainer.classList.add('modal-wrapper');
   $tempContainer.classList.add('modal-wrapper-active');
-
-  const $main = document.querySelector('#main');
-
   $tempContainer.innerHTML = makeModal();
   $main.appendChild($tempContainer);
 }
@@ -51,18 +49,19 @@ function validateUserPassword(password) {
 
 function showErrorMessage() {
   $inputId.value = null;
-  $inputIdBlank.textContent = emailErrorMessage;
   $inputId.classList.add('input-id-wrong');
+  $inputIdBlank.textContent = emailErrorMessage;
   $inputPassword.value = null;
   $inputPassword.classList.add('input-password-wrong');
   $inputPasswordBlank.textContent = passwordErrorMessage;
 }
 
-function postProcessOfSignin(response) {
+function postProcessOfSignIn(response) {
   if (!response.success) {
     showErrorMessage();
   } else {
     location.href='http://localhost:3000/home/';
+    setCooke();
   }
 }
 
@@ -89,13 +88,13 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if (!validateUserId(body.id)) {
-      showErrorMessage(emailErrorMessage);
+      showErrorMessage();
       showModal();
       return;
     }
 
     if (!validateUserPassword(body.password)) {
-      showErrorMessage(passwordErrorMessage);
+      showErrorMessage();
       showModal();
       return;
     }
@@ -113,7 +112,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
       return response.json();
     }).then(data => {
       console.log('응답값 : ', data);
-      postProcessOfSignin(data);
+      postProcessOfSignIn(data);
     });
   });
 
@@ -131,25 +130,30 @@ window.addEventListener('DOMContentLoaded', function(event) {
     document.querySelector('body').addEventListener(eventName, (event) => {
       event.stopPropagation();
       const { target } = event;
-
       const $selector = document.querySelector(selector);
 
       if (!$selector) {
         console.error(`${selector}에 해당하는 요소를 찾을 수 없습니다.`);
       } else {
         if ($selector.contains(target)) {
-          typeof eventListener === 'function' && eventListener(event);
+          flag = true;
+          typeof eventListener === 'function' && eventListener({ originalEvent: event, target: event.target, currentTarget: $selector });
         }
       }
     }, true);
   }
 
-  delegate('.button-modal-close', 'click', () => {
-    console.log('hit');
+  delegate('#main', 'click', (event) => {
+    if (event.currentTarget) {
+      $main.removeChild($main.childNodes[2]);
+    }
   });
 
-  delegate('.button-bottom-modal-close', 'click', () => {
-    console.log('hit');
-  });
+  window.addEventListener('keyup', (event) => {
+    if (flag && event.key === 'Escape') {
+      $main.removeChild($main.childNodes[2]);
+      flag = false;
+    }
+  })
 
 });

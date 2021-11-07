@@ -1,21 +1,17 @@
-const express = require('express');
+const path = require("path");
+const express = require("express");
 const router = express.Router();
 
+const controller_main = require('../controller/sign-in-controller.js');
 
-router.post('/', function(req, res, next) {
 
-  const { body: { id, password } } = req;
-
-  if (id === 'test@test.com' && password === 'test!234') {
-    res.json({
-      success: true
-    });
-  } else {
-    res.json({
-      success: false
-    });
-  }
-
+router.get('/', function(req, res){
+  res.sendFile(path.join(__dirname, '../public/sign-in/index.html'));
 });
+
+router.post('/' ,async function(req,res){
+  const result = await controller_main.signIn(req,res);
+  res.send(result);
+})
 
 module.exports = router;
