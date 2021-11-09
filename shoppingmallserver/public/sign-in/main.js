@@ -55,8 +55,7 @@ function postProcessOfSignIn(response) {
     showErrorMessage(document.querySelector('.input-id-wrapper'));
     showErrorMessage(document.querySelector('.input-password-wrapper'))
   } else {
-    location.href='http://localhost:3000/home/';
-    setCooke();
+    location.href='http://localhost:3000/';
   }
 }
 
