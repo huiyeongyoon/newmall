@@ -2,11 +2,7 @@ const $main = document.querySelector('#main');
 const $signUp = document.querySelector('.button-sign-up');
 const $form = document.querySelector('.form-sign-in');
 const $inputId = document.querySelector('.input-id');
-const $inputIdBlank =document.querySelector('.input-id-blank');
 const $inputPassword = document.querySelector('.input-password');
-const $inputPasswordBlank = document.querySelector('.input-password-blank');
-const emailErrorMessage = '존재하지 않는 이메일입니다.'
-const passwordErrorMessage = '패스워드가 틀립니다'
 let flag = false;
 
 function makeModal() {
@@ -47,32 +43,24 @@ function validateUserPassword(password) {
   return checkPasswordValidation.test(password);
 }
 
-function showErrorMessage() {
-  $inputId.value = null;
-  $inputId.classList.add('input-id-wrong');
-  $inputIdBlank.textContent = emailErrorMessage;
-  $inputPassword.value = null;
-  $inputPassword.classList.add('input-password-wrong');
-  $inputPasswordBlank.textContent = passwordErrorMessage;
+function showErrorMessage($wrapper) {
+  $wrapper.classList.add('show-error');
+}
+function composeErrorMessage($wrapper) {
+  $wrapper.classList.remove('show-error');
 }
 
 function postProcessOfSignIn(response) {
   if (!response.success) {
-    showErrorMessage();
+    showErrorMessage(document.querySelector('.input-id-wrapper'));
+    showErrorMessage(document.querySelector('.input-password-wrapper'))
   } else {
     location.href='http://localhost:3000/home/';
     setCooke();
   }
 }
 
-function changeInput(outline, blank) {
-  outline.classList.remove('input-id-wrong');
-  outline.classList.remove('input-password-wrong');
-  blank.textContent = '';
-}
-
 window.addEventListener('DOMContentLoaded', function(event) {
-
   $signUp.addEventListener('click', function(event) {
     event.preventDefault();
     signUp();
@@ -88,13 +76,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if (!validateUserId(body.id)) {
-      showErrorMessage();
+      showErrorMessage(document.querySelector('.input-id-wrapper'))
+      showErrorMessage(document.querySelector('.input-password-wrapper'))
       showModal();
       return;
     }
 
     if (!validateUserPassword(body.password)) {
-      showErrorMessage();
+      showErrorMessage(document.querySelector('.input-id-wrapper'))
+      showErrorMessage(document.querySelector('.input-password-wrapper'))
       showModal();
       return;
     }
@@ -118,12 +108,12 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
   $inputId.addEventListener('keyup', function(event) {
     event.preventDefault();
-    changeInput($inputId, $inputIdBlank);
+    composeErrorMessage(document.querySelector('.show-error'));
   })
 
   $inputPassword.addEventListener('keyup', function(event) {
     event.preventDefault();
-    changeInput($inputPassword,$inputPasswordBlank);
+    composeErrorMessage(document.querySelector('.show-error'));
   })
 
   function delegate(selector, eventName, eventListener) {
@@ -133,7 +123,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
       const $selector = document.querySelector(selector);
 
       if (!$selector) {
-        console.error(`${selector}에 해당하는 요소를 찾을 수 없습니다.`);
+        //console.error(`${selector}에 해당하는 요소를 찾을 수 없습니다.`);
       } else {
         if ($selector.contains(target)) {
           flag = true;
@@ -155,5 +145,4 @@ window.addEventListener('DOMContentLoaded', function(event) {
       flag = false;
     }
   })
-
 });

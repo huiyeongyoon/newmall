@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const router = express.Router();
 
-const controller_main = require('../controller/sign-in-controller.js');
+const controller_main = require('../controller/signIn');
 
 
 router.get('/', function(req, res){

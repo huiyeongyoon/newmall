@@ -94,7 +94,7 @@
   background-image: url(./img/category.jpg);
   background-repeat: no-repeat;
   background-position: 100%;
-  min-height: 300px;
+  min-height: 250px;
   width: 100%;
 }
 .sign-in-wrapper h1 {
@@ -109,7 +109,7 @@
 
 .create-and-sign-in-wrapper {
   display: flex;
-  padding: 200px;
+  padding: 50px;
 }
 .form {
   display: flex;
@@ -120,7 +120,7 @@
   line-height: 35px;
   color: #fff;
   margin-bottom: 17px;
-  padding: 80px 70px;
+  padding: 30px 70px;
   height: 600px;
   background-image: -webkit-linear-gradient(
           90deg, #B08EAD 0%, #4B3049 64%, #B08EAD 100%);
@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: center;
   width: 415px;
-  height: 440px;
+  height: 600px;
   text-align: center;
 }
 .sign-in-part-text-inner h2 {
@@ -157,7 +157,7 @@
   line-height: 35px;
   margin-bottom: 17px;
   display: inline-block;
-  padding: 80px 70px;
+  padding: 30px 70px;
   height: 600px;
   border: 1px solid;
   align-items: flex-start;
@@ -171,13 +171,19 @@
   display: flex;
   flex-direction: column;
   align-items:flex-start;
-  margin-bottom:80px;
+  margin:40px 0;
   text-align: left;
 }
 .input-label {
   color: #495057;
   font-weight:100;
   font-size:20px;
+}
+.input-id-wrapper {
+  width: 100%;
+}
+.input-password-wrapper {
+  width: 100%;
 }
 .input-id,
 .input-password {
@@ -188,12 +194,21 @@
 .input-id-wrong,
 .input-password-wrong {
   outline-color: red;
+  opacity: 0;
 }
-.input-id-blank,
-.input-password-blank {
+.input-id-blank1,
+.input-password-blank1{
+  display: block;
+}
+.show-error input,
+.show-error span{
+  outline-color: red;
+  opacity:1;
   color: red;
   font-size: 18px;
+  text-align: initial;
 }
+
 .checkbox-wrapper {
   display: flex;
   align-items: center;
@@ -228,7 +243,17 @@
   .create-and-sign-in-wrapper {
     display: flex;
     flex-direction: column-reverse;
-    padding: 200px;
+    padding: 50px;
+  }
+  .input-wrapper {
+    font-weight: 700;
+    line-height: 35px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 30px 70px;
+    height: 600px;
+    border: 1px solid;
+    align-items: flex-start;
   }
 }
 
