@@ -21,7 +21,7 @@
   color: red;
 }
 .user-info li a {
-  padding: 1.8rem;
+  padding: 1.6rem;
   text-decoration: none;
   color: white;
 }
@@ -43,7 +43,7 @@
   flex-direction: row;
   align-items: center;
   padding: 0 9.8rem;
-  height: 6.5rem;
+  height: 5rem;
 }
 .list-wrapper {
   display: flex;
@@ -57,16 +57,21 @@
 .list-wrapper ul li {
   display: flex;
   flex-direction: row;
+  color: red;
 }
-.list-wrapper ul li :hover {
+.list-wrapper ul li:hover,
+#active {
   background-color:black;
+  color: red;
 }
+
 .list-wrapper a {
   padding: 2rem 2rem;
   text-decoration: none;
   color: black;
 }
-.list-wrapper a:hover {
+.list-wrapper a:hover,
+#active{
   color: red;
 }
 .search-wrapper {

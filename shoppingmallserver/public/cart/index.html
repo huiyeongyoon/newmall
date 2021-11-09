@@ -20,7 +20,7 @@
     </div>
     <ul class="user-info">
       <li><a href="http://localhost:3000/product/">쇼핑</a></li>
-      <li><a href="http://localhost:3000/cart">장바구니</a></li>
+      <li><a id="active" href="javascript:void(0)">장바구니</a></li>
       <li><a href="http://localhost:3000/mypage">마이 페이지</a></li>
       <li><a href="http://localhost:3000/sign-in">로그인</a></li>
     </ul>
@@ -48,16 +48,16 @@
   </div>
   <div class="cart-wrapper">
     <div class="top-subject-name">
-    <div class="left-top-inner-subject-wrapper">
-      <h3>상품</h3>
+      <div class="left-top-inner-subject-wrapper">
+        <h3>상품</h3>
+      </div>
+      <div class="right-top-inner-subject-wrapper">
+        <h3>상품명</h3>
+        <h3>가격</h3>
+        <h3>수량</h3>
+        <h3>총계</h3>
+      </div>
     </div>
-    <div class="right-top-inner-subject-wrapper">
-      <h3>상품명</h3>
-      <h3>가격</h3>
-      <h3>수량</h3>
-      <h3>총계</h3>
-    </div>
-  </div>
     <div class="cart-content-info">
       <div class="left-top-inner-subject-wrapper">
         <img src="./img/arrivel_1.png" alt="">
@@ -177,7 +177,6 @@
       <button class="button" type="button">구매하기</button>
     </div>
   </div>
-
 </main>
 <footer>
   <div class="footer-wrapper">
