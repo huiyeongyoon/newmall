@@ -1,4 +1,5 @@
 const $listWrapper = document.querySelector('.list-wrapper');
+const $signOut = document.querySelector('.sign-out');
 $listWrapper.addEventListener('mouseover',function(event) {
   const $active = document.querySelector('#active');
   $active.removeAttribute('id');

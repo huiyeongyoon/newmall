@@ -5,11 +5,12 @@ const signIn = (req, res) => {
   // res.setHeader('Access-Control-Allow-Origin', '*'); // CORS
 
   if (id === 'test@test.com' && password === 'test!234') {
-    res.json({
-      success: true
+    return res.json({
+      success: true,
+      signInData: req.session.signInData
     });
   } else {
-    res.json({
+    return res.json({
       success: false
     });
   }
