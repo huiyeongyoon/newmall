@@ -8,8 +8,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
   const slideCount = slide.length;
   const slideWidth = 1000;
   const slideMargin = 60;
-  const $prev = document.querySelector('.prev');
-  const $next = document.querySelector('.next');
+  const $imgPrev = document.querySelector('.img-prev');
+  const $imgNext = document.querySelector('.img-next');
+  const $buttonCountLeft = document.querySelector('.button-count-left');
+  const $buttonCountRight = document.querySelector('.button-count-right');
+  const $counter = document.querySelector('.counter');
 
   $listWrapper.addEventListener('mouseover',function(event) {
     const $active = document.querySelector('#active');
@@ -20,7 +23,18 @@ window.addEventListener('DOMContentLoaded', function(event) {
     $listWrapper.childNodes[1].children[2].childNodes[0].setAttribute('id', 'active');
   })
 
+  $buttonCountLeft.addEventListener('click' ,function(event) {
+    let number = Number($counter.value);
+    $counter.value = number + 1;
+  })
+  $buttonCountRight.addEventListener('click' ,function(event) {
+    let number = Number($counter.value);
+    $counter.value = number - 1;
 
+    if (number === 1) {
+      $counter.value = 1;
+    }
+  })
   makeClone();
 
   function makeClone() {
@@ -55,10 +69,10 @@ window.addEventListener('DOMContentLoaded', function(event) {
     $slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
   }
 
-  $next.addEventListener('click', function() {
+  $imgNext.addEventListener('click', function() {
     moveSlide(currentIndex + 1);
   });
-  $prev.addEventListener('click', function() {
+  $imgPrev.addEventListener('click', function() {
     moveSlide(currentIndex - 1);
   });
 
@@ -79,5 +93,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
     },600);
 
   }
+
+
 });
 

@@ -146,21 +146,21 @@
   border: 1px solid #828bb2;
   margin: 0 35px;
 }
-.left {
+.button-count-left {
   width: 50px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   display: inline-block;
 }
-.right {
+.button-count-right {
   width: 50px;
   height: 50px;
   line-height: 50px;
   text-align: center;
   display: inline-block;
 }
-.center {
+.counter {
   background-color: #828bb2;
   color: #fff;
   border: 1px solid #828bb2;
@@ -202,9 +202,29 @@
   .search-wrapper {
     margin: 2.5em ;
   }
-  .slide-wrapper img {
-    width: 40em;
-    height: 30em;
+  .slides-wrapper {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    height: 800px;
+    overflow: hidden;
+  }
+  .slides {
+    display: flex;
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .slides.animated {
+    transition: 0.5s ease-out;
+  }
+  .slides li {
+    float: left;
+    margin: 28px;
+  }
+  .slides img {
+    width: 1000px;
+    height: 800px;
   }
 
   .bottom-wrapper {

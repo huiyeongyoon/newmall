@@ -96,6 +96,7 @@ body {
   padding: 0 30px;
   width: 100%;
   align-items: center;
+  justify-content: center;
 }
 .category-picture {
   display: flex;
