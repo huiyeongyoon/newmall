@@ -28,15 +28,17 @@ window.addEventListener('DOMContentLoaded', function(event) {
     $counter.value = counterNumber + 1;
     const totalPrice = 20000 * $counter.value;
     $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
+
   })
   $buttonCountRight.addEventListener('click' ,function(event) {
     const counterNumber = Number($counter.value);
     $counter.value = counterNumber - 1;
-    const totalPrice = 20000 * $counter.value;
-    $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
     if (counterNumber === 1) {
       $counter.value = 1;
     }
+    const totalPrice = 20000 * $counter.value;
+    $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
+
   })
   makeClone();
 
@@ -82,7 +84,6 @@ window.addEventListener('DOMContentLoaded', function(event) {
   function moveSlide(num) {
     $slides.style.left = -num * (slideWidth + slideMargin) + 'px';
     currentIndex = num;
-    console.log(currentIndex, slideCount);
 
     if(currentIndex === slideCount || currentIndex === -slideCount) {
       setTimeout(function() {
