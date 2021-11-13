@@ -21,6 +21,7 @@
 }
 .button-wrapper {
   display: flex;
+  position: relative;
 }
 .slides-wrapper {
   position: relative;
@@ -57,9 +58,10 @@
   background-color: #E4D3DF;
   position: absolute;
   left: 5px;
-  top: 60%;
+  top: 50%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  z-index: 10;
 }
 .button-img-prev::after {
   content: '';
@@ -84,9 +86,10 @@
   background-color: #E4D3DF;
   position: absolute;
   right: 5px;
-  top: 60%;
+  top: 50%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  z-index: 10;
 }
 .button-img-next::after{
   content: '';
