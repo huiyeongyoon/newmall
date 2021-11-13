@@ -6,14 +6,14 @@ window.addEventListener('DOMContentLoaded', function(event) {
   const slide = document.querySelectorAll('.slides li');
   let currentIndex = 0;
   const slideCount = slide.length;
-  const slideWidth = 1000;
+  const slideWidth = 1200;
   const slideMargin = 60;
-  const $imgPrev = document.querySelector('.img-prev');
-  const $imgNext = document.querySelector('.img-next');
+  const $imgPrev = document.querySelector('.button-img-prev');
+  const $imgNext = document.querySelector('.button-img-next');
   const $buttonCountLeft = document.querySelector('.button-count-left');
   const $buttonCountRight = document.querySelector('.button-count-right');
   const $counter = document.querySelector('.counter');
-
+  const $priceTotal = document.querySelector('.price-total');
   $listWrapper.addEventListener('mouseover',function(event) {
     const $active = document.querySelector('#active');
     $active.removeAttribute('id');
@@ -24,14 +24,17 @@ window.addEventListener('DOMContentLoaded', function(event) {
   })
 
   $buttonCountLeft.addEventListener('click' ,function(event) {
-    let number = Number($counter.value);
-    $counter.value = number + 1;
+    const counterNumber = Number($counter.value);
+    $counter.value = counterNumber + 1;
+    const totalPrice = 20000 * $counter.value;
+    $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
   })
   $buttonCountRight.addEventListener('click' ,function(event) {
-    let number = Number($counter.value);
-    $counter.value = number - 1;
-
-    if (number === 1) {
+    const counterNumber = Number($counter.value);
+    $counter.value = counterNumber - 1;
+    const totalPrice = 20000 * $counter.value;
+    $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
+    if (counterNumber === 1) {
       $counter.value = 1;
     }
   })

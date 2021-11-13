@@ -22,7 +22,7 @@
   padding:1rem 0;
 }
 .left-top-inner-subject-wrapper {
-  width: 60%;
+  width: 50%;
 }
 .right-top-inner-subject-wrapper {
   display: flex;
@@ -108,6 +108,9 @@
   .right-top-inner-subject-wrapper h3 {
     padding: 5px;
   }
+  .counting-inner-wrapper {
+    width:60%
+  }
 }
 @media screen and (max-width: 768px) {
   .cart-wrapper {
@@ -126,6 +129,9 @@
     text-transform: capitalize;
     color: #fff;
     margin: 1rem 0 0 3rem;
+  }
+  .counting-inner-wrapper {
+    width:60%
   }
 }
 

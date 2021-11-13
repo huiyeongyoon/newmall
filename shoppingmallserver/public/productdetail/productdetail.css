@@ -19,11 +19,14 @@
   font-size: 82px;
   margin: 5rem 0;
 }
+.button-wrapper {
+  display: flex;
+}
 .slides-wrapper {
   position: relative;
-  width: 1000px;
+  width: 1800px;
   margin: 0 auto;
-  height: 800px;
+  height: 350px;
   overflow: hidden;
 }
 .slides {
@@ -37,13 +40,13 @@
 }
 .slides li {
   float: left;
-  margin: 28px;
+  margin: 26px;
 }
 .slides img {
-  width: 1000px;
-  height: 800px;
+  width: 575px;
+  height: 350px;
 }
-.left-button{
+.button-img-prev{
   width: 40px;
   height: 40px;
   font-size: 14px;
@@ -53,12 +56,12 @@
   color: #fff;
   background-color: #E4D3DF;
   position: absolute;
-  left: 20px;
-  top: 54%;
+  left: 5px;
+  top: 60%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.left-button::after {
+.button-img-prev::after {
   content: '';
   width: 5px;
   height: 5px;
@@ -70,7 +73,7 @@
   top: calc(50% - 3.5px);
   left: calc(50% - 3.5px);
 }
-.right-button {
+.button-img-next {
   width: 40px;
   height: 40px;
   font-size: 14px;
@@ -80,12 +83,12 @@
   color: #fff;
   background-color: #E4D3DF;
   position: absolute;
-  right: 20px;
-  top: 54%;
+  right: 5px;
+  top: 60%;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.right-button::after{
+.button-img-next::after{
   content: '';
   width: 5px;
   height: 5px;
@@ -204,9 +207,9 @@
   }
   .slides-wrapper {
     position: relative;
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
-    height: 800px;
+    height: 600px;
     overflow: hidden;
   }
   .slides {
@@ -223,8 +226,8 @@
     margin: 28px;
   }
   .slides img {
-    width: 1000px;
-    height: 800px;
+    width: 800px;
+    height: 600px;
   }
 
   .bottom-wrapper {
