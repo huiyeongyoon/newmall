@@ -25,9 +25,9 @@
 }
 .slides-wrapper {
   position: relative;
-  width: 1800px;
+  width: 1280px;
   margin: 0 auto;
-  height: 350px;
+  height: 380px;
   overflow: hidden;
 }
 .slides {
@@ -44,7 +44,7 @@
   margin: 26px;
 }
 .slides img {
-  width: 575px;
+  width: 396px;
   height: 350px;
 }
 .button-img-prev{
@@ -210,9 +210,9 @@
   }
   .slides-wrapper {
     position: relative;
-    width: 800px;
+    width: 450px;
     margin: 0 auto;
-    height: 600px;
+    height: 330px;
     overflow: hidden;
   }
   .slides {
@@ -229,10 +229,16 @@
     margin: 28px;
   }
   .slides img {
-    width: 800px;
-    height: 600px;
+    width: 395px;
+    height: 300px;
   }
+  .button-img-prev {
+    left: 30px;
+  }
+  .button-img-next {
+    right: 30px;
 
+  }
   .bottom-wrapper {
     display: flex;
     justify-content: center;

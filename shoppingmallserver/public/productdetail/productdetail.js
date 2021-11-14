@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
   const slide = document.querySelectorAll('.slides li');
   let currentIndex = 0;
   const slideCount = slide.length;
-  const slideWidth = 570;
+  const slideWidth = 391;
   const slideMargin = 60;
   const $imgPrev = document.querySelector('.button-img-prev');
   const $imgNext = document.querySelector('.button-img-next');
