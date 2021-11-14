@@ -49,10 +49,10 @@
     </div>
     <nav class="sort">
       <ul>
-        <li><a href="">All</a></li>
-        <li><a href="">New</a></li>
-        <li><a href="">Feature</a></li>
-        <li><a href="">Offer</a></li>
+        <li><a data-name="All" class="sort-name active" href="">All</a></li>
+        <li><a data-name="New" class="sort-name" href="">New</a></li>
+        <li><a data-name="Feature" class="sort-name" href="">Feature</a></li>
+        <li><a data-name="Offer" class="sort-name" href="" >Offer</a></li>
       </ul>
       <form>
         <span class="sort-right-contents">sort by:</span>
@@ -64,11 +64,11 @@
         </select>
       </form>
     </nav>
-    <section class="items">
-      <ul class="item">
-        <li class="single-product">
+    <section class="items-wrapper">
+      <ul class="items">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product1.png" alt="">
+            <img class="image" data-name="All" src="img/product1.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -83,9 +83,9 @@
             </div>
           </div>
         </li>
-        <li class="single-product">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product2.png" alt="">
+            <img class="image" data-name="All" src="img/product2.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -100,9 +100,9 @@
             </div>
           </div>
         </li>
-        <li class="single-product">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product3.png" alt="">
+            <img data-name="Feature" class="image" src="img/product3.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -117,9 +117,9 @@
             </div>
           </div>
         </li>
-        <li class="single-product">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product4.png" alt="">
+            <img class="image" data-name="Feature" src="img/product4.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -134,9 +134,9 @@
             </div>
           </div>
         </li>
-        <li class="single-product">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product5.png" alt="">
+            <img class="image" data-name="Offer" src="img/product5.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -151,9 +151,9 @@
             </div>
           </div>
         </li>
-        <li class="single-product">
+        <li class="item">
           <div class="product-img">
-            <img src="img/product6.png" alt="">
+            <img class="image" data-name="Offer" src="img/product6.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>

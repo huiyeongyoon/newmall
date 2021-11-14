@@ -60,7 +60,7 @@
   display: flex;
   justify-content:space-around;
   border: 1px solid black;
-  margin: 40px 30px;
+  margin: 40px 20px;
 }
 .date-wrapper ul {
   display: flex;

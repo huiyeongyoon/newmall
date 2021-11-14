@@ -125,12 +125,19 @@
     height: 100%;
     margin-top: 15px
   }
-
+  .logo-wrapper {
+    margin: 2em 0;
+  }
   .list-wrapper ul {
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+  .list-wrapper ul a{
+    padding: 1rem 2rem;
   }
   .sort-right-contents  {
     padding-right: 0;
   }
+
 }
