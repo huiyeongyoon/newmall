@@ -1,10 +1,9 @@
 const $listWrapper = document.querySelector('.list-wrapper');
-const $signOut = document.querySelector('.sign-out');
 $listWrapper.addEventListener('mouseover',function(event) {
   const $active = document.querySelector('#active');
   $active.removeAttribute('id');
 })
 
 $listWrapper.addEventListener('mouseout',function(event) {
-  $listWrapper.childNodes[1].children[0].childNodes[0].setAttribute('id', 'active');
+  $listWrapper.childNodes[1].children[3].childNodes[0].setAttribute('id', 'active');
 })

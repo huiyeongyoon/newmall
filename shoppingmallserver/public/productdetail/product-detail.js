@@ -1,4 +1,7 @@
+
 window.addEventListener('DOMContentLoaded', function(event) {
+  const $listWrapper = document.querySelector('.list-wrapper');
+
   const $slides = document.querySelector('.slides');
   const slide = document.querySelectorAll('.slides li');
   let currentIndex = 0;
@@ -11,6 +14,14 @@ window.addEventListener('DOMContentLoaded', function(event) {
   const $buttonCountRight = document.querySelector('.button-count-right');
   const $counter = document.querySelector('.counter');
   const $priceTotal = document.querySelector('.price-total');
+  $listWrapper.addEventListener('mouseover',function(event) {
+    const $active = document.querySelector('#active');
+    $active.removeAttribute('id');
+  })
+
+  $listWrapper.addEventListener('mouseout',function(event) {
+    $listWrapper.childNodes[1].children[2].childNodes[0].setAttribute('id', 'active');
+  })
 
   $buttonCountLeft.addEventListener('click' ,function(event) {
     const counterNumber = Number($counter.value);
