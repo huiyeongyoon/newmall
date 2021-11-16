@@ -1,8 +1,6 @@
-// 2객체 접근
+
 const signIn = (req, res) => {
   const { body: { id, password } } = req;
-
-  // res.setHeader('Access-Control-Allow-Origin', '*'); // CORS
 
   if (id === 'test@test.com' && password === 'test!234') {
     return res.json({
@@ -16,7 +14,6 @@ const signIn = (req, res) => {
   }
 }
 
-// 3밖으로 내보내기
 module.exports = {
   signIn
 };

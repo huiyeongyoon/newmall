@@ -46,7 +46,7 @@ function validateUserPassword(password) {
 function showErrorMessage($wrapper) {
   $wrapper.classList.add('show-error');
 }
-function composeErrorMessage($wrapper) {
+function removeErrorMessage($wrapper) {
   $wrapper.classList.remove('show-error');
 }
 
@@ -98,21 +98,23 @@ window.addEventListener('DOMContentLoaded', function(event) {
           body: JSON.stringify(body),
         }
     ).then(response => {
+      console.log(response);
       return response.json();
     }).then(data => {
       console.log('응답값 : ', data);
       postProcessOfSignIn(data);
     });
+
   });
 
   $inputId.addEventListener('keyup', function(event) {
     event.preventDefault();
-    composeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.show-error'));
   })
 
   $inputPassword.addEventListener('keyup', function(event) {
     event.preventDefault();
-    composeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.show-error'));
   })
 
   function delegate(selector, eventName, eventListener) {
@@ -135,12 +137,16 @@ window.addEventListener('DOMContentLoaded', function(event) {
   delegate('#main', 'click', (event) => {
     if (event.currentTarget) {
       $main.removeChild($main.childNodes[2]);
+      $inputId.value = '';
+      $inputPassword.value = '';
     }
   });
 
   window.addEventListener('keyup', (event) => {
     if (flag && event.key === 'Escape') {
       $main.removeChild($main.childNodes[2]);
+      $inputId.value = '';
+      $inputPassword.value = '';
       flag = false;
     }
   })

@@ -38,7 +38,7 @@ body {
   padding: 1px 10px;
 ;
 }
-.sort ul .active,
+.sort ul li.active,
 .sort ul li:hover {
   background-color:#c7ecff;
 }

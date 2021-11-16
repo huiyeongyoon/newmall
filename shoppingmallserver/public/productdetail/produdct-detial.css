@@ -25,7 +25,7 @@
 }
 .slides-wrapper {
   position: relative;
-  width: 1280px;
+  width: 1402px;
   margin: 0 auto;
   height: 380px;
   overflow: hidden;
@@ -44,7 +44,7 @@
   margin: 26px;
 }
 .slides img {
-  width: 396px;
+  width: 435px;
   height: 350px;
 }
 .button-img-prev{
@@ -57,7 +57,7 @@
   color: #fff;
   background-color: #E4D3DF;
   position: absolute;
-  left: 5px;
+  left: 12px;
   top: 50%;
   -webkit-transition: 0.5s;
   transition: 0.5s;

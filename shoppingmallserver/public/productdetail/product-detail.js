@@ -1,12 +1,11 @@
 
 window.addEventListener('DOMContentLoaded', function(event) {
   const $listWrapper = document.querySelector('.list-wrapper');
-
   const $slides = document.querySelector('.slides');
   const slide = document.querySelectorAll('.slides li');
   let currentIndex = 0;
   const slideCount = slide.length;
-  const slideWidth = 391;
+  const slideWidth = 428.65;
   const slideMargin = 60;
   const $imgPrev = document.querySelector('.button-img-prev');
   const $imgNext = document.querySelector('.button-img-next');
@@ -14,6 +13,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
   const $buttonCountRight = document.querySelector('.button-count-right');
   const $counter = document.querySelector('.counter');
   const $priceTotal = document.querySelector('.price-total');
+  const $inputCount = document.querySelector('.input-count');
+
   $listWrapper.addEventListener('mouseover',function(event) {
     const $active = document.querySelector('#active');
     $active.removeAttribute('id');
@@ -28,8 +29,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
     $counter.value = counterNumber + 1;
     const totalPrice = 20000 * $counter.value;
     $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
-
   })
+
   $buttonCountRight.addEventListener('click' ,function(event) {
     const counterNumber = Number($counter.value);
     $counter.value = counterNumber - 1;
@@ -38,8 +39,13 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
     const totalPrice = 20000 * $counter.value;
     $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
-
   })
+
+  $inputCount.addEventListener('keyup', function(event) {
+    const totalPrice = 20000 * $counter.value;
+    $priceTotal.innerHTML = totalPrice.toLocaleString('ko-KR')+ '원';
+  })
+
   makeClone();
 
   function makeClone() {
@@ -58,17 +64,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(function(){
       $slides.classList.add('animated');
     }, 100);
-
   }
 
   function updateWidth() {
     const currentSlides = document.querySelectorAll('.slides li');
     const newSlideCount = currentSlides.length;
-
     const newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
     $slides.style.width = newWidth;
-
   }
+
   function setInitialPosition() {
     const initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
     $slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
@@ -97,7 +101,6 @@ window.addEventListener('DOMContentLoaded', function(event) {
     },600);
 
   }
-
 
 });
 

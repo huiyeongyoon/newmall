@@ -50,6 +50,8 @@
 .counting-inner-wrapper input {
   text-align: center;
   width: 100%;
+  background-color: #828bb2;
+  border: 1px solid #828bb2;
 }
 .left {
   width: 100%;

@@ -81,7 +81,7 @@
           <span class="button-count-left">
             <i class="fas fa-plus"></i>
           </span>
-          <input type="text" class="counter" value="1">
+          <input class="input-count counter" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'')" value="1">
           <span class="button-count-right">
             <i class="fas fa-minus"></i>
           </span>

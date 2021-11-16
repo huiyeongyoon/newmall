@@ -1,4 +1,4 @@
-const $listWrapper = document.querySelector('.list-wrapper');
+
 $listWrapper.addEventListener('mouseover',function(event) {
   const $active = document.querySelector('#active');
   $active.removeAttribute('id');
