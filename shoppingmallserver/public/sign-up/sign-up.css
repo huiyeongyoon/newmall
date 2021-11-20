@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 4% 38%;
+  margin: 0 38%;
   padding: 3em;
   border: 1px solid black;
 }
@@ -25,6 +25,34 @@
   height:2em;
   margin: 0 0 2em 0;
 }
+
+.id-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.password-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.password-confirm-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-id-wrong,
+.input-password-wrong,
+.input-name-wrong{
+  outline-color: red;
+  opacity: 0;
+}
+
 .buttonSignUp {
   display: inline-block;
   width: 100%;
@@ -43,13 +71,21 @@
   transition: 0.5s;
 }
 
+.show-error input,
+.show-error span{
+  outline-color: red;
+  opacity:1;
+  color: red;
+  text-align: initial;
+}
+
   @media screen and (max-width: 1700px) {
     .sign-up-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 37%;
+      margin: 0 37%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -60,7 +96,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 36%;
+      margin: 0 36%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -72,7 +108,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 35%;
+      margin: 0 35%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -84,7 +120,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 34%;
+      margin: 0 34%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -96,7 +132,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 33%;
+      margin: 0 33%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -108,7 +144,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 32%;
+      margin: 0 32%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -119,7 +155,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 30%;
+      margin: 0 30%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -131,7 +167,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 28%;
+      margin: 0 28%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -143,7 +179,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 24%;
+      margin: 0 24%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -155,7 +191,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 22%;
+      margin: 0 22%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -167,7 +203,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 17%;
+      margin: 0 17%;
       padding: 3em;
       border: 1px solid black;
     }
@@ -179,7 +215,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      margin: 4% 10%;
+      margin: 0 10%;
       padding: 3em;
       border: 1px solid black;
     }

@@ -29,6 +29,13 @@ function validateUserPasswordConfirm(passwordConfirm) {
   return checkPasswordConfirmValidation.test(passwordConfirm);
 }
 
+function showErrorMessage($wrapper) {
+  $wrapper.classList.add('show-error');
+}
+
+function removeErrorMessage($wrapper) {
+  $wrapper.classList.remove('show-error');
+}
 
 window.addEventListener('DOMContentLoaded', function(event) {
 
@@ -43,21 +50,44 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if(!validateUserEmail(body.id)) {
-      console.log(body.id);
+      showErrorMessage(document.querySelector('.id-wrapper'));
     }
 
     if(!validateUserName(body.name)) {
-      console.log(body.name);
+      showErrorMessage(document.querySelector('.name-wrapper'));
     }
 
     if(!validateUserPassword(body.password)) {
-      console.log(body.password);
+      showErrorMessage(document.querySelector('.password-wrapper'));
     }
 
     if(!validateUserPasswordConfirm(body.passwordConfirm)) {
-      console.log(body.passwordConfirm);
+      showErrorMessage(document.querySelector('.password-confirm-wrapper'));
+      return
     }
 
+    location.href='/';
   })
+
+  $inputId.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    removeErrorMessage(document.querySelector('.show-error'));
+  })
+
+  $inputName.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    removeErrorMessage(document.querySelector('.show-error'));
+  })
+
+  $inputPassword.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    removeErrorMessage(document.querySelector('.show-error'));
+  })
+
+  $inputPasswordConform.addEventListener('keyup', function(event) {
+    event.preventDefault();
+    removeErrorMessage(document.querySelector('.show-error'));
+  })
+
 });
 
