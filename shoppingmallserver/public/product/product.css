@@ -2,6 +2,9 @@ body {
   overflow-x: hidden;
 }
 
+.gallery-items img {
+  width: 20vw;
+}
 .product-subject {
   display: flex;
   justify-content: center;
@@ -72,7 +75,7 @@ body {
 }
 .item{
   display: flex;
-  padding: 0.3rem;
+  padding: 1.2rem;
   text-align: center;
   width: 33%;
   flex-direction:column;

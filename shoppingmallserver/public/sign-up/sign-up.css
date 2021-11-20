@@ -1,0 +1,187 @@
+.sign-up-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 4% 38%;
+  padding: 3em;
+  border: 1px solid black;
+}
+.sign-up-wrapper h2{
+  text-align: center;
+}
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.input-wrapper label {
+  color: #495057;
+  font-weight:100;
+  font-size:20px;
+  margin: 0.5em 0;
+}
+.input-wrapper input {
+  height:2em;
+  margin: 0 0 2em 0;
+}
+.buttonSignUp {
+  display: inline-block;
+  width: 100%;
+  margin: 30px 0 17px;
+  padding: 18px 36px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #2577fd;
+  font-size: 15px;
+  color: #2577fd;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+  @media screen and (max-width: 1700px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 37%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+
+  @media screen and (max-width: 1600px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 36%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 35%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 1400px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 34%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 33%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 32%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+  @media screen and (max-width: 1100px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 30%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 28%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 24%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 22%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 17%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .sign-up-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 4% 10%;
+      padding: 3em;
+      border: 1px solid black;
+    }
+  }
+}

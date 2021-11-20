@@ -19,10 +19,11 @@ app.use(session({
   key: 'signInData',
   secret: 'huiyeong',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     expires: 60 * 60 * 24,
-  }
+  },
+  store: new FileStore()
 }));
 
 

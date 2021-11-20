@@ -1,5 +1,5 @@
 const $main = document.querySelector('#main');
-const $signUp = document.querySelector('.button-sign-up');
+const $buttonSignUp = document.querySelector('.button-sign-up');
 const $form = document.querySelector('.form-sign-in');
 const $inputId = document.querySelector('.input-id');
 const $inputPassword = document.querySelector('.input-password');
@@ -27,13 +27,9 @@ function showModal() {
   $main.appendChild($tempContainer);
 }
 
-function signUp() {
-}
-
 function validateUserId(id) {
   const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
-
   return checkEmailValidation.test(id);
 }
 
@@ -46,8 +42,14 @@ function validateUserPassword(password) {
 function showErrorMessage($wrapper) {
   $wrapper.classList.add('show-error');
 }
+
 function removeErrorMessage($wrapper) {
   $wrapper.classList.remove('show-error');
+}
+
+function resetValue() {
+  $inputId.value = '';
+  $inputPassword.value = '';
 }
 
 function postProcessOfSignIn(response) {
@@ -55,14 +57,15 @@ function postProcessOfSignIn(response) {
     showErrorMessage(document.querySelector('.input-id-wrapper'));
     showErrorMessage(document.querySelector('.input-password-wrapper'))
   } else {
-    location.href='http://localhost:3000/';
+    location.href='/';
   }
 }
 
 window.addEventListener('DOMContentLoaded', function(event) {
-  $signUp.addEventListener('click', function(event) {
-    event.preventDefault();
-    signUp();
+
+  $buttonSignUp.addEventListener('click', function(event) {
+    // event.preventDefault();
+    location.href='/sign-up';
   })
 
   $form.addEventListener('submit', function(event) {
@@ -89,7 +92,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
     }
 
     fetch(
-        'http://localhost:3000/sign-in',
+        '/sign-in',
         {
           method: 'POST',
           headers: {
@@ -135,19 +138,17 @@ window.addEventListener('DOMContentLoaded', function(event) {
   }
 
   delegate('#main', 'click', (event) => {
-    if (event.currentTarget) {
+    if (event.currentTarget.contains($main.childNodes[2])) {
       $main.removeChild($main.childNodes[2]);
-      $inputId.value = '';
-      $inputPassword.value = '';
     }
   });
 
   window.addEventListener('keyup', (event) => {
     if (flag && event.key === 'Escape') {
-      $main.removeChild($main.childNodes[2]);
-      $inputId.value = '';
-      $inputPassword.value = '';
-      flag = false;
+      if($main.contains($main.childNodes[2])){
+        $main.removeChild($main.childNodes[2]);
+        flag = false;
+      }
     }
   })
 });

@@ -29,7 +29,8 @@
   padding: 1.8rem;
 }
 .phone-number-wrapper span {
-  padding-right: 1rem
+  padding: 0 1rem 0 0;
+  padding-right: 1rem;
 }
 
 .main-wrapper {
