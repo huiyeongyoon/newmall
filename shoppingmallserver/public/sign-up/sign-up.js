@@ -5,9 +5,17 @@ const $inputPasswordConfirm = document.querySelector('#input-password-confirm');
 const $formSignUp = document.querySelector('.form-sign-up');
 
 function validateUserEmail(id) {
-  const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  const checkEmailValidation1 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  const checkEmailValidation2 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
-  return checkEmailValidation.test(id);
+  if (checkEmailValidation1.test(id)) {
+    return { isValid: false, message: '중복된 아이디입니다.' };
+  }
+
+  if (checkEmailValidation2.test(id)) {
+    return { isValid: false, message: '잘못된 형식의 아이디입니다.' };
+  }
+  return { isValid: true };
 }
 
 function validateUserName(name) {
@@ -59,6 +67,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
       showErrorMessage(document.querySelector('.id-wrapper'));
       resetValue();
       return
+
+    const validationOfEmail = validateUserEmail(body.id);
+
+    if (!validationOfEmail.isValid) {
+      showErrorMessage(document.querySelector('.id-wrapper'), validateUserEmail.message);
     }
 
     if(!validateUserName(body.name)) {
