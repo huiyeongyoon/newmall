@@ -64,7 +64,6 @@ function postProcessOfSignIn(response) {
 window.addEventListener('DOMContentLoaded', function(event) {
 
   $buttonSignUp.addEventListener('click', function(event) {
-    // event.preventDefault();
     location.href='/sign-up';
   })
 
@@ -110,14 +109,14 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
   });
 
-  $inputId.addEventListener('keyup', function(event) {
+  $inputId.addEventListener('input', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.input-id-wrapper'));
   })
 
-  $inputPassword.addEventListener('keyup', function(event) {
+  $inputPassword.addEventListener('input', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.input-password-wrapper'));
   })
 
   function delegate(selector, eventName, eventListener) {
@@ -140,6 +139,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
   delegate('#main', 'click', (event) => {
     if (event.currentTarget.contains($main.childNodes[2])) {
       $main.removeChild($main.childNodes[2]);
+      resetValue();
     }
   });
 
@@ -148,6 +148,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
       if($main.contains($main.childNodes[2])){
         $main.removeChild($main.childNodes[2]);
         flag = false;
+        resetValue()
       }
     }
   })

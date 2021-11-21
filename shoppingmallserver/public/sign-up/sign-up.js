@@ -1,13 +1,12 @@
 const $inputId = document.querySelector('#input-id');
 const $inputName = document.querySelector('#input-name');
 const $inputPassword = document.querySelector('#input-password');
-const $inputPasswordConform = document.querySelector('#input-password-conform');
+const $inputPasswordConfirm = document.querySelector('#input-password-confirm');
 const $formSignUp = document.querySelector('.form-sign-up');
 
 function validateUserEmail(id) {
   const checkEmailValidation = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
-
   return checkEmailValidation.test(id);
 }
 
@@ -37,6 +36,13 @@ function removeErrorMessage($wrapper) {
   $wrapper.classList.remove('show-error');
 }
 
+function resetValue() {
+  $inputId.value = '';
+  $inputName.value = '';
+  $inputPassword.value = '';
+  $inputPasswordConfirm.value = '';
+}
+
 window.addEventListener('DOMContentLoaded', function(event) {
 
   $formSignUp.addEventListener('submit', function(event) {
@@ -51,18 +57,32 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
     if(!validateUserEmail(body.id)) {
       showErrorMessage(document.querySelector('.id-wrapper'));
+      resetValue();
+      return
     }
 
     if(!validateUserName(body.name)) {
       showErrorMessage(document.querySelector('.name-wrapper'));
+      resetValue();
+      return
     }
 
     if(!validateUserPassword(body.password)) {
       showErrorMessage(document.querySelector('.password-wrapper'));
+      resetValue();
+      return
     }
 
     if(!validateUserPasswordConfirm(body.passwordConfirm)) {
       showErrorMessage(document.querySelector('.password-confirm-wrapper'));
+      resetValue();
+      return
+    }
+
+    if (body.password !== body.passwordConfirm) {
+      showErrorMessage(document.querySelector('.password-wrapper'));
+      showErrorMessage(document.querySelector('.password-confirm-wrapper'));
+      resetValue();
       return
     }
 
@@ -71,22 +91,22 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
   $inputId.addEventListener('keyup', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.id-wrapper'));
   })
 
   $inputName.addEventListener('keyup', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.name-wrapper'));
   })
 
   $inputPassword.addEventListener('keyup', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.password-wrapper'));
   })
 
-  $inputPasswordConform.addEventListener('keyup', function(event) {
+  $inputPasswordConfirm.addEventListener('keyup', function(event) {
     event.preventDefault();
-    removeErrorMessage(document.querySelector('.show-error'));
+    removeErrorMessage(document.querySelector('.password-confirm-wrapper'));
   })
 
 });
