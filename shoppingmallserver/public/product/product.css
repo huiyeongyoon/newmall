@@ -45,7 +45,7 @@ body {
 .sort ul li:hover {
   background-color:#c7ecff;
 }
-.sort ul li a{
+.sort ul li a {
   padding: 0.5rem;
   color: #5ac0fc;
   text-decoration: none;
