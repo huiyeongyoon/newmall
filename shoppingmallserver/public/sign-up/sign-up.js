@@ -5,15 +5,16 @@ const $inputPasswordConfirm = document.querySelector('#input-password-confirm');
 const $formSignUp = document.querySelector('.form-sign-up');
 
 function validateUserEmail(id) {
-  const checkEmailValidation1 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  const checkEmailValidation1 = 'test@test.com';
   const checkEmailValidation2 = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
   // 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 입력
-  if (checkEmailValidation1.test(id)) {
-    return { isValid: false, message: '중복된 아이디입니다.' };
+
+  if (!checkEmailValidation2.test(id)) {
+    return { isValid: false, message: '잘못된 형식의 아이디입니다.' };
   }
 
-  if (checkEmailValidation2.test(id)) {
-    return { isValid: false, message: '잘못된 형식의 아이디입니다.' };
+  if (id === checkEmailValidation1) {
+    return { isValid: false, message: '중복된 아이디입니다.' };
   }
   return { isValid: true };
 }
@@ -36,8 +37,13 @@ function validateUserPasswordConfirm(passwordConfirm) {
   return checkPasswordConfirmValidation.test(passwordConfirm);
 }
 
-function showErrorMessage($wrapper) {
+function showErrorMessage($wrapper, errorMessage) {
+  const $inputIdWrong = document.querySelector('.input-id-wrong');
+
   $wrapper.classList.add('show-error');
+  if(errorMessage !== undefined) {
+    $inputIdWrong.innerHTML = errorMessage;
+  }
 }
 
 function removeErrorMessage($wrapper) {
@@ -49,12 +55,14 @@ function resetValue() {
   $inputName.value = '';
   $inputPassword.value = '';
   $inputPasswordConfirm.value = '';
+  return false;
 }
 
 window.addEventListener('DOMContentLoaded', function(event) {
-
+  event.preventDefault();
   $formSignUp.addEventListener('submit', function(event) {
     event.preventDefault();
+    let flag = true;
     const signInData = new FormData(event.target);
     const body = {
       id: signInData.get('input-id'),
@@ -63,43 +71,50 @@ window.addEventListener('DOMContentLoaded', function(event) {
       passwordConfirm: signInData.get('input-password-confirm'),
     }
 
-    if(!validateUserEmail(body.id)) {
-      showErrorMessage(document.querySelector('.id-wrapper'));
+    if (!validateUserEmail(body.id)) {
+      showErrorMessage(document.querySelector('.id-wrapper span'));
       resetValue();
-      return
+      flag = false;
+    }
 
     const validationOfEmail = validateUserEmail(body.id);
 
+    console.log(validationOfEmail);
     if (!validationOfEmail.isValid) {
-      showErrorMessage(document.querySelector('.id-wrapper'), validateUserEmail.message);
+      showErrorMessage(document.querySelector('.id-wrapper'), validationOfEmail.message);
+      resetValue();
+      flag = false;
     }
 
     if(!validateUserName(body.name)) {
       showErrorMessage(document.querySelector('.name-wrapper'));
       resetValue();
-      return
+      flag = false;
     }
 
     if(!validateUserPassword(body.password)) {
       showErrorMessage(document.querySelector('.password-wrapper'));
       resetValue();
-      return
+      flag = false;
     }
 
     if(!validateUserPasswordConfirm(body.passwordConfirm)) {
       showErrorMessage(document.querySelector('.password-confirm-wrapper'));
       resetValue();
-      return
+      flag = false;
     }
 
     if (body.password !== body.passwordConfirm) {
       showErrorMessage(document.querySelector('.password-wrapper'));
       showErrorMessage(document.querySelector('.password-confirm-wrapper'));
       resetValue();
-      return
+      flag = false;
     }
 
-    location.href='/';
+    if(flag) {
+      location.href='/';
+    }
+
   })
 
   $inputId.addEventListener('keyup', function(event) {

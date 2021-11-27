@@ -1,7 +1,6 @@
 const $listWrapper = document.querySelector('.list-wrapper');
 const $sort = document.querySelector('.sort');
-const $image = document.querySelectorAll('.image');
-
+const $sortName = document.querySelectorAll('.sort-name');
 $listWrapper.addEventListener('mouseover', function(event) {
   const $active = document.querySelector('#active');
   $active.removeAttribute('id');
@@ -15,9 +14,11 @@ window.onload = () => {
   $sort.addEventListener('click', function(event) {
     event.preventDefault();
 
+
     if(event.target.classList.contains('sort-name')) {
       $sort.querySelector('.active').classList.remove('active');
       event.target.parentElement.classList.add('active');
     }
+
   });
 }

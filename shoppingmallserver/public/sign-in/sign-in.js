@@ -56,8 +56,6 @@ function postProcessOfSignIn(response) {
   if (!response.success) {
     showErrorMessage(document.querySelector('.input-id-wrapper'));
     showErrorMessage(document.querySelector('.input-password-wrapper'))
-  } else {
-    location.href='/';
   }
 }
 
@@ -67,7 +65,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
     location.href='/sign-up';
   })
 
-  $form.addEventListener('submit', function(event) {
+  $form.addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const signInData = new FormData(event.target);
@@ -90,24 +88,24 @@ window.addEventListener('DOMContentLoaded', function(event) {
       return;
     }
 
-    fetch(
-        '/sign-in',
+    const response = await fetch(
+        'sign-in',
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify(body),
-        }
-    ).then(response => {
-      console.log(response);
-      return response.json();
-    }).then(data => {
-      console.log('응답값 : ', data);
-      postProcessOfSignIn(data);
-    });
-
+        }).then(response => response.json());
+    if (response.ok) {
+      console.log(response.ok);
+      location.href = '/';
+    } else {
+      postProcessOfSignIn();
+    }
   });
+
 
   $inputId.addEventListener('input', function(event) {
     event.preventDefault();

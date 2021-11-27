@@ -12,9 +12,6 @@
 </head>
 <body>
 <header id="header">
-  <!-- nav의 사용이 적절하지 않습니다. -->
-  <!-- nav는 한 페이지에 두 개 이상 있으면 좋지 않습니다. (이게 중요) -->
-  <!-- nav는 페이지간 동일한 UI를 갖고 페이지간 이동을 위해 사용됩니다. (두 번째로 중요; 참고 정도) -->
   <nav class="user-info-navbar">
     <div class="phone-number-wrapper">
       <span>Contact Number</span>
@@ -27,11 +24,9 @@
       <li><a href="/sign-in/">로그인</a></li>
     </ul>
   </nav>
-  <nav class="navbar-shopping-list">
+  <section class="navbar-shopping-list">
     <div class="logo-wrapper">
-      <!-- h1으로 적절하지 않습니다. -->
-      <!-- visually-hidden에 대해 알아보세요. -->
-      <h1><span class="visually-hidden">상품 리스트</span><a href="/"><img src="img/logo.png" alt=""></a></h1>
+      <span class="visually-hidden">상품 리스트</span><a href="/"><img src="img/logo.png" alt=""></a>
     </div>
     <div class="list-wrapper">
       <ul>
@@ -44,39 +39,52 @@
     <div class="search-wrapper">
       <input type="text" placeholder="search">
     </div>
-    </div>
-  </nav>
+  </section>
 </header>
 <main>
   <div class="main-wrapper">
     <div class="product-subject">
       <h1>Product</h1>
     </div>
-    <nav class="sort">
-      <!-- nav를 여기에서 사용하는 건 적절하지 않습니다. -->
+    <section class="sort">
       <ul>
         <li class="active"><a data-name="All" class="sort-name" href="">All</a></li>
         <li><a data-name="New" class="sort-name" href="">New</a></li>
         <li><a data-name="Feature" class="sort-name" href="">Feature</a></li>
         <li><a data-name="Offer" class="sort-name" href="" >Offer</a></li>
       </ul>
-      <form>
-        <!-- form 사용법이 틀렸습니다. -->
+      <div>
         <span class="sort-right-contents">sort by:</span>
         <select name="sorting" class="sorting" >
-          <!-- select 사용법이 틀렸습니다. -->
           <option value="korean" selected>평가순</option>
           <option value="korean">주문순</option>
           <option value="korean">가격 낮은순</option>
           <option value="korean">가격 높은순</option>
         </select>
-      </form>
-    </nav>
+      </div>
+    </section>
     <section class="items-wrapper">
       <ul class="items">
-        <li class="item">
+        <li class="item" data-name="All">
           <div class="product-img">
-            <img class="image" data-name="All" src="img/product1.png" alt="">
+            <img class="image" src="img/product1.png" alt="">
+            <div class="new-product">
+              <span>New</span>
+            </div>
+          </div>
+          <div class="product-caption">
+            <h2 class="product-link"><a href="/productdetail/">Green Dress with details</a></h2>
+            <div class="price">
+              <ul>
+                <li>40,000원</li>
+                <li class="discount">50,000원</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="item" data-name="All">
+          <div class="product-img">
+            <img class="image" src="img/product2.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -93,7 +101,7 @@
         </li>
         <li class="item">
           <div class="product-img">
-            <img class="image" data-name="All" src="img/product2.png" alt="">
+            <img class="image" src="img/product3.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -110,7 +118,7 @@
         </li>
         <li class="item">
           <div class="product-img">
-            <img data-name="Feature" class="image" src="img/product3.png" alt="">
+            <img class="image" src="img/product4.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -127,7 +135,7 @@
         </li>
         <li class="item">
           <div class="product-img">
-            <img class="image" data-name="Feature" src="img/product4.png" alt="">
+            <img class="image" src="img/product5.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
@@ -144,24 +152,7 @@
         </li>
         <li class="item">
           <div class="product-img">
-            <img class="image" data-name="Offer" src="img/product5.png" alt="">
-            <div class="new-product">
-              <span>New</span>
-            </div>
-          </div>
-          <div class="product-caption">
-            <h2 class="product-link"><a href="/productdetail/">Green Dress with details</a></h2>
-            <div class="price">
-              <ul>
-                <li>40,000원</li>
-                <li class="discount">50,000원</li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li class="item">
-          <div class="product-img">
-            <img class="image" data-name="Offer" src="img/product6.png" alt="">
+            <img class="image" src="img/product6.png" alt="">
             <div class="new-product">
               <span>New</span>
             </div>
