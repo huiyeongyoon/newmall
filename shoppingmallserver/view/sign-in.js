@@ -4,6 +4,6 @@ var router = express.Router();
 // 1파일 불러오기
 const controller = require('../routes/controller/sign-in');
 
-router.post('/', controller.signIn);
+router.post('/sign-in', controller.signIn);
 
 module.exports = router;
