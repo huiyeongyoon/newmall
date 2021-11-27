@@ -88,6 +88,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
       return;
     }
 
+    console.log(body);
+
     const response = await fetch(
         'sign-in',
         {
@@ -104,6 +106,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
     } else {
       postProcessOfSignIn();
     }
+
+    console.log(response);
   });
 
 

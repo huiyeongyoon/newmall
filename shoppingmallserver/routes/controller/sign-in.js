@@ -7,10 +7,10 @@ const TempLoginInfo = {
 
 const signIn = (req, res) => {
   const { body: { id, password } } = req;
-
   if (TempLoginInfo.id === id && TempLoginInfo.password === password) {
     req.session.userId = TempLoginInfo.userId;
     res.json({ ok: true });
+    console.log(res);
     return;
   }
   res.json({ ok: false });
