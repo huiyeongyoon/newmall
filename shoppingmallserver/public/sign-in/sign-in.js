@@ -101,13 +101,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
           body: JSON.stringify(body),
         }).then(response => response.json());
     if (response.ok) {
-      console.log(response.ok);
+      console.log(response);
       location.href = '/';
     } else {
       postProcessOfSignIn();
     }
-
-    console.log(response);
   });
 
 

@@ -1,19 +1,29 @@
-<!DOCTYPE html>
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  const userId = req.session.userId;
+
+
+
+  res.send(`
+  <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <title>상품</title>
-  <link rel="stylesheet" href="common/style.css">
-  <link rel="stylesheet" href="common/reset.css">
-  <link rel="stylesheet" href="common/header.css">
-  <link rel="stylesheet" href="common/footer.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../common/style.css">
+  <link rel="stylesheet" href="../common/reset.css">
+  <link rel="stylesheet" href="../common/header.css">
+  <link rel="stylesheet" href="../common/footer.css">
+  <link rel="stylesheet" href="../home/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" type="image/x-icon" href="imgavicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
 <header id="header">
@@ -23,15 +33,16 @@
       <span>010-0000-0000</span>
     </div>
     <ul class="user-info">
-      <li><a href="http://localhost:3000/product/">쇼핑</a></li>
-      <li><a href="http://localhost:3000/cart">장바구니</a></li>
-      <li><a href="http://localhost:3000/mypage">마이 페이지</a></li>
-      <li><a href="http://localhost:3000/sign-in" class="sign-out">로그인</a></li>
+      <li><a href="../product/">쇼핑</a></li>
+      <li><a href="../cart">장바구니</a></li>
+      <li><a href="../mypage">마이 페이지</a></li>
+      ${userId ? `<li><a href="/" class="sign-out">로그아웃</a></li>` 
+      : `<li><a href="../sign-in" class="sign-in">로그인</a></li>`}
     </ul>
   </nav>
   <nav class="navbar-shopping-list">
     <div class="logo-wrapper">
-      <h1><a href="http://localhost:3000/"><img src="img/logo.png" alt=""></a></h1>
+      <h1><a href="/"><img src="../img/logo.png" alt=""></a></h1>
     </div>
     <div class="list-wrapper">
       <ul>
@@ -48,9 +59,9 @@
 </header>
 <main>
   <div class="main-wrapper">
-    <img class="background-image" src="img/h1_hero.jpg">
+    <img class="background-image" src="../img/h1_hero.jpg">
     <span class="main-picture-wrapper">
-      <img src="img/hero_man.png">
+      <img src="../img/hero_man.png">
       <span class="sail-text-wrapper">
         <span class="top-text">60% Discount</span>
         <h2>winter<br>Collection</h2>
@@ -63,19 +74,19 @@
         <h2>Shop by category</h2>
       </div>
       <div class="category-pictures-wrapper">
-        <article class="category-picture" style="background-image: url(img/cat1.jpg);">
+        <article class="category-picture" style="background-image: url(../img/cat1.jpg);">
           <div class="category-text-wrapper">
             <span>Women's clothes</span>
             <button type="button">Best new deal</button>
           </div>
         </article>
-        <article class="category-picture" style="background-image: url(img/cat2.jpg);">
+        <article class="category-picture" style="background-image: url(../img/cat2.jpg);">
           <div class="category-text-wrapper">
             <span>Women's clothes</span>
             <button type="button">Best new deal</button>
           </div>
         </article>
-        <article class="category-picture" style="background-image: url(img/cat3.jpg);">
+        <article class="category-picture" style="background-image: url(../img/cat3.jpg);">
           <div class="category-text-wrapper">
             <span>Women's clothes</span>
             <button type="button">Best new deal</button>
@@ -91,7 +102,7 @@
       <div class="footer-padding logo-size">
         <!-- logo -->
         <div class="footer-logo">
-          <a href="http://localhost:3000/"><img src="img/logo2_footer.png" alt=""></a>
+          <a href="http://localhost:3000/"><img src="../img/logo2_footer.png" alt=""></a>
         </div>
         <div class="footer-tittle">
           <div>
@@ -104,9 +115,9 @@
           <h2>Quick Links</h2>
           <ul>
             <li><a href="#">About</a></li>
-            <li><a href="#"> Offers &amp; Discounts</a></li>
-            <li><a href="#"> Get Coupon</a></li>
-            <li><a href="#">  Contact Us</a></li>
+            <li><a href="#">Offers &amp; Discounts</a></li>
+            <li><a href="#">Get Coupon</a></li>
+            <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -117,8 +128,8 @@
             <ul>
               <li><a href="#">Woman Cloth</a></li>
               <li><a href="#">Fashion Accessories</a></li>
-              <li><a href="#"> Man Accessories</a></li>
-              <li><a href="#"> Rubber made Toys</a></li>
+              <li><a href="#">Man Accessories</a></li>
+              <li><a href="#">Rubber made Toys</a></li>
             </ul>
           </div>
         </div>
@@ -140,6 +151,11 @@
     </div>
   </div>
 </footer>
-<script src="./index.js"></script>
+<script src="../home/index.js"></script>
 </body>
-</html>
+</html>`);
+});
+
+
+
+module.exports = router;
