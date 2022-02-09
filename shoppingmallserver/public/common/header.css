@@ -1,0 +1,153 @@
+#header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.user-info-navbar {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  color: white;
+  height: 4.5rem;
+  justify-content: space-between;
+}
+.user-info {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.user-info :hover{
+  color: red;
+}
+.user-info li a {
+  padding: 1.6rem;
+  text-decoration: none;
+  color: white;
+}
+.phone-number-wrapper {
+  padding: 1.8rem;
+}
+.phone-number-wrapper span {
+  padding: 0 1rem 0 0;
+  padding-right: 1rem;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20%;
+  align-items: center;
+}
+.navbar-shopping-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 9.8rem;
+  height: 5rem;
+}
+.list-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center
+}
+.list-wrapper ul {
+  display: flex;
+}
+.list-wrapper ul li {
+  display: flex;
+  flex-direction: row;
+  color: red;
+}
+.list-wrapper ul li:hover,
+#active {
+  background-color:black;
+  color: red;
+}
+
+.list-wrapper a {
+  padding: 2rem 2rem;
+  text-decoration: none;
+  color: black;
+}
+.list-wrapper a:hover,
+#active{
+  color: red;
+}
+.search-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items:center;
+}
+.search-wrapper input {
+  height: 2.3rem;
+  padding-left: 1rem;
+}
+.button-search-icon {
+  background-color: white;
+}
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1100px) {
+  .user-info-navbar {
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+  }
+  .phone-number-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+  .user-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .user-info li {
+    padding: 20px 0;
+  }
+
+  .phone-number-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .phone-number-wrapper span {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+  .navbar-shopping-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 15px
+  }
+  .logo-wrapper {
+    margin: 2em 0;
+  }
+  .list-wrapper ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .list-wrapper ul a{
+    padding: 1rem 2rem;
+  }
+  .sort-right-contents  {
+    padding-right: 0;
+  }
+
+}
